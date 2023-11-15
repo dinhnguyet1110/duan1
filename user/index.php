@@ -29,7 +29,6 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
         case 'phim':
             if(isset($_GET['idtl'])&&($_GET['idtl']>0)){
                 $idtl=$_GET['idtl'];
-
                 $dsphim = loadall_phim('',$idtl);
                 $tentl = load_ten_theloai($idtl);
                 include_once "../user/view/phim.php";
