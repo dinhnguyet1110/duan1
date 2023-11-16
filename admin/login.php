@@ -68,9 +68,12 @@
                         </div>
                         <div class="row border-top border-secondary">
                             <div class="col-12">
+                                <div class="form-group p-t-10 ">
+                                    <a href="register.php"><h5>Bạn chưa có tài khoản? Đăng ký</h5></a>
+                                </div>
                                 <div class="form-group">
                                     <div class="p-t-20">
-                                        <button class="btn btn-info" id="to-recover" type="button"><i class="fa fa-lock m-r-5"></i> Quên mật khẩu?</button>
+                                        <button class="btn btn-info" type="button"><i class="fa fa-lock m-r-5"></i> Quên mật khẩu?</button>
                                         <button class="btn btn-success float-right" type="submit">Đăng nhập</button>
                                     </div>
                                 </div>
@@ -78,47 +81,9 @@
                         </div>
                     </form>
                 </div>
-                <div id="recoverform">
-                    <div class="text-center">
-                        <span class="text-white">Nhập địa chỉ email để khôi phục mật khẩu.</span>
-                    </div>
-                    <div class="row m-t-20">
-                        <!-- Form -->
-                        <form class="col-12" action="index.html">
-                            <!-- email -->
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-email"></i></span>
-                                </div>
-                                <input type="text" class="form-control form-control-lg" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1">
-                            </div>
-                            <!-- pwd -->
-                            <div class="row m-t-20 p-t-20 border-top border-secondary">
-                                <div class="col-12">
-                                    <a class="btn btn-success" href="#" id="to-login" name="action">Quay lại</a>
-                                    <button class="btn btn-info float-right" type="button" name="action">Recover</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper scss in scafholding.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper scss in scafholding.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right Sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right Sidebar -->
-        <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
     <!-- All Required js -->

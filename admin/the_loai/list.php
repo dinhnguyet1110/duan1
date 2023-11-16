@@ -35,7 +35,7 @@
                                     echo '<tr>
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td>'.$id.'</td>
-                                        <td>'.$name.'</td>
+                                        <td>'.$nametl.'</td>
                                         <td><a href="'.$suatl.'"><input type="button" class="btn btn-cyan btn-sm" value="Sửa"></a>
                                         <a onclick="'."return confirm('Bạn có muốn xóa?')".'" href="'.$xoatl.'"><input type="button" value="Xóa" class="btn btn-danger btn-sm"></a></td>
                                     </tr>

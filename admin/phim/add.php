@@ -14,7 +14,7 @@
                                     <?php
                                         foreach($listtheloai as $theloai){
                                             extract($theloai);
-                                            echo '<option value="'.$id.'">'.$name.'</option>';
+                                            echo '<option value="'.$id.'">'.$nametl.'</option>';
                                         }
                                     ?>                                      
                                 </select>

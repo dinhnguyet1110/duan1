@@ -25,9 +25,9 @@
                                         <?php
                                             foreach($listtheloai as $theloai){                                 
                                                 if($idtl==$theloai['id']){
-                                                echo '<option value="'.$theloai['id'].'" selected>'.$theloai['name'].'</option>';
+                                                echo '<option value="'.$theloai['id'].'" selected>'.$theloai['nametl'].'</option>';
                                                 }else{
-                                                    echo '<option value="'.$theloai['id'].'">'.$theloai['name'].'</option>';
+                                                    echo '<option value="'.$theloai['id'].'">'.$theloai['nametl'].'</option>';
                                                 }
                                             }
                                         ?>

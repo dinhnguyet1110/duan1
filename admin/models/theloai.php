@@ -1,6 +1,6 @@
 <?php
         function insert_theloai($tenloai){
-            $sql = "INSERT INTO the_loai(name) values('$tenloai')";
+            $sql = "INSERT INTO the_loai(nametl) values('$tenloai')";
             pdo_execute($sql);
         }
 
@@ -22,7 +22,7 @@
         }
 
         function update_theloai($id,$tenloai){
-            $sql = "UPDATE the_loai set name='".$tenloai."' where id=".$id;
+            $sql = "UPDATE the_loai set nametl='".$tenloai."' where id=".$id;
             pdo_execute($sql);
         }
 ?>

@@ -11,7 +11,7 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Thể loại</li>
                                 </ol>
                             </nav>
@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="hue-demo">Tên loại</label>
-                                        <input type="text"  class="form-control demo" name="tenloai" value="<?php if(isset($name)&&($name!="")) echo $name; ?>">
+                                        <input type="text"  class="form-control demo" name="tenloai" value="<?php if(isset($nametl)&&($nametl!="")) echo $nametl; ?>">
                                     </div>
                                 </div>
                             </div>

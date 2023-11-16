@@ -57,9 +57,11 @@ function loadall_phim_home(){
     return $listphim;
 }
 
-// function load_phim_cungloai($id,$idtl){
-//     $sql = "SELECT * FROM phim WHERE idtl = $idtl and id <> $id";
-//     $result = pdo_query($sql);
-//     return $result;
-    
-// }
+function loadone_ctphim($id){
+    $sql="SELECT phim.*, nametl from phim join the_loai on phim.idtl=the_loai.id where phim.id=".$id;
+    $phim=pdo_query_one($sql);
+   
+    return $phim;
+}
+
+?>

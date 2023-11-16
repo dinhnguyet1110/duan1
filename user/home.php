@@ -92,13 +92,13 @@
                             <div class="item">                          
                                 <div class="movie-grid">                                                              
                                     <div class="movie-thumb c-thumb">
-                                        <a href="index.php?act=ctphim">
+                                        <a href="index.php?act=ctphim&id=<?php echo $id ?>">
                                            <img src="../admin/upload/<?php echo $avatar ?>" alt="movie" >
                                         </a>
                                     </div>
                                     <div class="movie-content bg-one">
                                         <h5 class="title m-0">                                      
-                                        <a href="index.php?act=ctphim"><?php echo $name ?></a>                                           
+                                        <a href="index.php?act=ctphim&id=<?php echo $id ?>"><?php echo $name ?></a>                                           
                                             </h5>
                                             
                                     </div>                                   
