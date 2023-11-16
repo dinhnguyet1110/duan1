@@ -85,6 +85,8 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Quản trị</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_theloai" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Thể loại</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_phim" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Phim</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_lichchieu" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Lịch chiếu</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_khunggio" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Khung giờ chiếu</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_ghe" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Ghế</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_taikhoan" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Tài khoản</span></a></li>               
                     </ul>

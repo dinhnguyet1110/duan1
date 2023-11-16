@@ -7,7 +7,7 @@
                 <form action="index.php?act=add_phim" method="post" enctype="multipart/form-data">
                     <div class="card">
                         <div class="card-body">
-                        <div class="form-group row">
+                            <div class="form-group row">
                                 <label class="col-md-3 m-t-15">Thể loại phim</label><br>
                                 <div class="col-md-9">
                                 <select class="select2 form-control custom-select" style="width: 100%; height:36px;"name="idtl">                                              
@@ -33,19 +33,19 @@
                                 <input type="text" id="thoiuong" class="form-control demo" name="thoiluong" required>
                             </div>
                             <div class="form-group m-t-20">
-                                <label for="hinh">hình</label>
+                                <label for="hinh">Hình ảnh</label>
                                 <input type="file" name="hinh">
                             </div>
                             <div class="form-group m-t-20">
-                                <label for="tenphim">ngày khởi chiếu </label>
+                                <label for="tenphim">Ngày khởi chiếu </label>
                                 <input type="text" id="ngaykchieu" class="form-control demo" name="ngaykchieu" required>
                             </div>
                             <div class="form-group m-t-20">
-                                <label for="trailer">trailer</label>
+                                <label for="trailer">Trailer</label>
                                 <input type="text" id="trailer" class="form-control demo" name="trailer" required>
                             </div>
                             <div class="form-group m-t-20">
-                                <label for="trangthai">trạng thái</label>
+                                <label for="trangthai">Trạng thái</label>
                                 <input type="text" id="trangthai" class="form-control demo" name="trangthai" required>
                             </div>
                         </div>

@@ -18,22 +18,20 @@
                 <form action="index.php?act=update_phim" method="post" enctype="multipart/form-data">
                     <div class="card">
                         <div class="card-body">
-                        <div class="form-group row">
+                            <div class="form-group row">
                                 <label class="col-md-3 m-t-15">Thể loại phim</label><br>
-                                <div class="col-md-9">
-                                <select name="idtl">
-                            <option value="0" selected>Tất cả</option>
-                            <?php
-                                foreach($listtheloai as $theloai){
-                                    
-                                    if($idtl==$theloai['id']){
-                                    echo '<option value="'.$theloai['id'].'" selected>'.$theloai['name'].'</option>';
-                                    }else{
-                                        echo '<option value="'.$theloai['id'].'">'.$theloai['name'].'</option>';
-                                    }
-                                }
-                            ?>
-                        </select>
+                                <div class="col-md-12">
+                                    <select name="idtl">                                       
+                                        <?php
+                                            foreach($listtheloai as $theloai){                                 
+                                                if($idtl==$theloai['id']){
+                                                echo '<option value="'.$theloai['id'].'" selected>'.$theloai['name'].'</option>';
+                                                }else{
+                                                    echo '<option value="'.$theloai['id'].'">'.$theloai['name'].'</option>';
+                                                }
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group m-t-20">
