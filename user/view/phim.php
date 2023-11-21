@@ -34,35 +34,35 @@
                 </div>
                 <div class="tab-area">
                     <div class="tab-item active">
-                        <form class="ticket-search-form">
+                        <form class="ticket-search-form" method="post" action="index.php?act=phim" >
                             <div class="form-group large">
-                                <input type="text" placeholder="Tìm kiếm phim">
+                                <input type="text" placeholder="Tìm kiếm phim" name="kyw">
                                 <button type="submit"><i class="fas fa-search"></i></button>
                             </div>                         
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <div class="thumb">
                                     <img src="assets/images/ticket/date.png" alt="ticket">
                                 </div>
                                 <span class="type">Ngày</span>
-        <!--Thêm ngày-->        <select class="select-bar">
+                                <select class="select-bar">
                                     <option value="26-12-19">23/10/2019</option>
                                     <option value="26-12-19">24/10/2019</option>
                                     <option value="26-12-19">25/10/2019</option>
                                     <option value="26-12-19">26/10/2019</option>
                                 </select>
-                            </div>
-                            <div class="form-group">
+                            </div> -->
+                            <!-- <div class="form-group">
                                 <div class="thumb">
-        <img src="assets/images/ticket/dh.png" alt="ticket">
+                                <img src="assets/images/ticket/dh.png" alt="ticket">
                                 </div>
                                 <span class="type">Giờ</span>
-        <!--Thêm giờ-->        <select class="select-bar">
+                                <select class="select-bar">
                                     <option value="26-12-19">23/10/2019</option>
                                     <option value="26-12-19">24/10/2019</option>
                                     <option value="26-12-19">25/10/2019</option>
                                     <option value="26-12-19">26/10/2019</option>
                                 </select>
-                            </div>
+                            </div> -->
                         </form>
                     </div>
                     
@@ -91,7 +91,7 @@
                             <div class="item">                          
                                 <div class="movie-grid">                                                              
                                     <div class="movie-thumb c-thumb">
-                                        <a href="index.php?act=ctphim&id=".$id>
+                                        <a href="index.php?act=ctphim&id=<?php echo $id ?>">
                                            <img src="../admin/upload/<?php echo $avatar ?>" alt="movie" >
                                         </a>
                                     </div>

@@ -5,6 +5,8 @@
     include "../admin/models/phim.php";
     include "../admin/models/khunggiochieu.php";
     include "../admin/models/lichchieu.php";
+    include "../admin/models/taikhoan.php";
+    include "../admin/models/phong.php";
 
     if(isset($_GET['act'])){
         $act=$_GET['act'];
@@ -64,7 +66,7 @@
                         // Xử lý trường hợp không có ảnh được tải lên.
                         $hinh = "";
                     }
-                    insert_phim($tenphim, $motaphim, $thoiluong, $hinh, $ngaykchieu, $trailer, $trangthai,$idtl);
+                    insert_phim($tenphim, $motaphim, $thoiluong, $hinh, $ngaykchieu, $trailer, $trangthai, $idtl);
                     $thongbao="Thêm thành công";
                 }
                 $listtheloai = loadall_theloai();
@@ -126,18 +128,27 @@
                 $listphim = loadall_phim("",0);
                 // Hiển thị giao diện thêm phim
                 include "../admin/phim/add.php";
-                break;         
-            // quản lý khung giờ      
+                break;      
+          
+            // quản lý khung giờ   
+            case 'tao_gio':
+                $id=$_GET['id'];  
+                $listlichchieu = loadall_lichchieu();
+                include "../admin/khung_gio_chieu/add.php";
+                break;   
             case 'list_khunggio':
                 $listkhunggio = loadall_khunggio();
                 include "../admin/khung_gio_chieu/list.php";
                 break;
             case 'add_khunggio':
                 if(isset($_POST['themmoi']) && ($_POST['themmoi'])){
-                    $tengio=$_POST['tengio'];
-                    insert_khunggio($tengio);
-                }                
-                include "../admin/khung_gio_chieu/add.php";
+                    $giochieu=$_POST['giochieu'];
+                    $id_lichchieu=$_POST['id_lichchieu'];
+                    insert_khunggio($giochieu,$id_lichchieu);
+                }     
+                $listlichchieu = loadall_lichchieu();   
+                $listkhunggio = loadall_khunggio();                
+                include "../admin/khung_gio_chieu/list.php";
                 break;
             case 'xoakg':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
@@ -150,20 +161,28 @@
                 if(isset($_GET['id'])&&($_GET['id']>0)){
                     $kg=loadone_khunggio($_GET['id']);
                 }
+                $listlichchieu = loadall_lichchieu();
                 include "../admin/khung_gio_chieu/update.php";
                 break;
             case 'update_khunggio':
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
-                    $tengio=$_POST['tengio'];
                     $id=$_POST['id'];
-                    update_khunggio($id,$tengio);
+                    $giochieu=$_POST['giochieu'];
+                    $id_lichchieu=$_POST['id_lichchieu'];
+                    update_khunggio($id,$giochieu,$id_lichchieu);
                     $thongbao="Cập nhật thành công";
                 }  
+                $listlichchieu = loadall_lichchieu();
                 $listkhunggio = loadall_khunggio();
                 include "../admin/khung_gio_chieu/list.php";
                 break;  
                 
             // quản lý lịch chiếu (ngày)
+            case 'taolich':
+                $id=$_GET['id'];  
+                $listphim = loadall_phim("",0);
+                include "../admin/lich_chieu/add.php";
+                break;
             case 'list_lichchieu':
                 $listlichchieu = loadall_lichchieu();
                 include "../admin/lich_chieu/list.php";
@@ -172,14 +191,14 @@
                 if(isset($_POST['themmoi']) && ($_POST['themmoi'])){                 
                     $ngaychieu=$_POST['ngaychieu'];
                     $idphim=$_POST['idphim'];
-                    $idgio=$_POST['idgio'];
-                    insert_lichchieu($idphim,$ngaychieu,$idgio);
+                    $trangthai=$_POST['trangthai'];
+                    insert_lichchieu($idphim,$ngaychieu,$trangthai);
                     $thongbao="Thêm mới thành công";
                 }  
-
                 $listphim = loadall_phim('','');
                 $listkhunggio = loadall_khunggio();
-                include "../admin/lich_chieu/add.php";
+                $listlichchieu = loadall_lichchieu();
+                include "../admin/lich_chieu/list.php";
                 break;
             case 'xoalich':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
@@ -201,8 +220,8 @@
                     $id=$_POST['id'];
                     $idphim=$_POST['idphim'];
                     $ngaychieu=$_POST['ngaychieu'];
-                    $idgio=$_POST['idgio'];
-                    update_lichchieu($id,$idphim,$ngaychieu,$idgio);
+                    $trangthai=$_POST['trangthai'];
+                    update_lichchieu($id,$idphim,$ngaychieu,$trangthai);
                     $thongbao="Cập nhật thành công";
                 }  
                 $listphim = loadall_phim('','');
@@ -210,7 +229,63 @@
                 $listlichchieu = loadall_lichchieu();
                 include "../admin/lich_chieu/list.php";
                 break;  
+                
+            case 'list_taikhoan':
+                $listtaikhoan=loadall_taikhoan() ;              
+                include "../admin/taikhoan/list.php";
+                break;
+            case 'xoatk':
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    delete_taikhoan($_GET['id']);
+                }
+                $listtaikhoan=loadall_taikhoan() ;   
+                include "../admin/taikhoan/list.php";
+                break;
+            case'dangxuat':
+                
+                unset($_SESSION['user']);           
+                
+                $currentURL = $_SERVER['login.php'];
+                echo '<script type="text/javascript">window.location.href = "' . $currentURL . '?reload=true";</script>';
+                break;
 
+            // quản lý phòng
+            case 'list_phongchieu':
+                $listphong = loadall_phong();
+                include "../admin/phong_chieu/list.php";
+                break;
+            case 'add_phongchieu':
+                if(isset($_POST['themmoi']) && ($_POST['themmoi'])){
+                    $ten_phong=$_POST['ten_phong'];
+                    $so_ghe=$_POST['so_ghe'];
+                    insert_phong($ten_phong,$so_ghe);
+                }  
+                include "../admin/phong_chieu/add.php";
+                break;
+            case 'xoaphong':
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    delete_phong($_GET['id']);
+                }
+                $listphong = loadall_phong();
+                include "../admin/phong_chieu/list.php";
+                break;
+            case 'suaphong':
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    $phong=loadone_phong($_GET['id']);
+                }
+                include "../admin/phong_chieu/update.php";
+                break;
+            case 'update_phongchieu':
+                if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
+                    $so_ghe=$_POST['so_ghe'];
+                    $ten_phong=$_POST['ten_phong'];
+                    $id=$_POST['id'];
+                    update_phong($id,$ten_phong,$so_ghe);
+                    $thongbao="Cập nhật thành công";
+                }  
+                $listphong = loadall_phong();
+                include "../admin/phong_chieu/list.php";
+                
             default:
             include '../admin/view/layout/home.php';
                 break;

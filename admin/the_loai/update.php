@@ -27,7 +27,7 @@
                                 <div class="card-body">
                                     <div class="form-group m-t-20">
                                     <label for="hue-demo">Mã thể loại</label>
-                                    <input type="text" id="maloai" class="form-control demo" name="maloai"value="<?php if(isset($id)&&($id!="")) echo $id; ?>">
+                                    <input type="text" id="maloai" class="form-control demo" name="maloai"value="<?php if(isset($id)&&($id!="")) echo $id; ?>" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label for="hue-demo">Tên loại</label>

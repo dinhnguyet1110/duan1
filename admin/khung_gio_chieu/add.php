@@ -20,16 +20,29 @@
                     <div class="col-md">
                         <form action="index.php?act=add_khunggio" method="post">
                             <div class="card">
-                                <div class="card-body">
-                                
-                                        <div class="form-group m-t-20">
-                                        <label for="hue-demo">Mã khung giờ</label>
-                                        <input type="text" id="magio" class="form-control demo" name="magio" disabled>
+                                <div class="card-body">                              
+                                        
+                                        <div class="form-group">
+                                            <label for="hue-demo">Giờ chiếu</label>
+                                            <input type="text" id="giochieu" class="form-control demo" name="giochieu">
                                         </div>
                                         <div class="form-group">
-                                            <label for="hue-demo">Tên giờ</label>
-                                            <input type="text" id="tengio" class="form-control demo" name="tengio">
+                                            <label for="hue-demo">ID lịch chiếu</label>
+                                            <input type="text"  class="form-control demo" name="id_lichchieu" value=<?php echo $id ?>>
                                         </div>
+                                        <!-- <div class="form-group row">
+                                            <label class="col-md-3 m-t-15">ID lịch chiếu</label><br>
+                                            <div class="col-md-12">
+                                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="id_lichchieu">                                              
+                                                
+                                                    foreach($listlichchieu as $lichchieu){
+                                                        extract($lichchieu);
+                                                        echo '<option>'.$id.'</option>';
+                                                    }
+                                                                                   
+                                                </select>
+                                            </div>
+                                        </div> -->
                                 
                                 </div>
                             </div>

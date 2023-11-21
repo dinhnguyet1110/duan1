@@ -18,12 +18,16 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
+                        <!-- <div class="card-body">
+                            <a href="index.php?act=add_khunggio"><input type="button"class="btn btn-success" value="Nhập thêm"></a>
+                        </div> -->
                         <div class="card">
                             <table class="table">
                             <tr>
                                 <th></th>
                                 <th>Mã giờ</th>
-                                <th>Tên giờ</th>
+                                <th>Giờ chiếu</th>
+                                <th>ID suất chiếu</th>
                                 <th>Thao tác</th>
                             </tr>
                             <?php
@@ -34,7 +38,8 @@
                                     echo '<tr>
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td>'.$id.'</td>
-                                        <td>'.$gio_bat_dau.'</td>
+                                        <td>'.$gio_chieu.'</td>
+                                        <td>'.$id_lichchieu.'</td>
                                         <td><a href="'.$suakg.'"><input type="button" class="btn btn-cyan btn-sm" value="Sửa"></a>
                                         <a onclick="'."return confirm('Bạn có muốn xóa?')".'" href="'.$xoakg.'"><input type="button" value="Xóa" class="btn btn-danger btn-sm"></a></td>
                                     </tr>
@@ -43,10 +48,7 @@
                             ?>
                             </table>
                         </div>
-                        <div class="card-body">
-                            <a href="index.php?act=add_khunggio"><input type="button"class="btn btn-success" value="Nhập thêm"></a>
-                            
-                        </div>
+                        
                     </div>
                         
                     </div>

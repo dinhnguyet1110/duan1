@@ -26,35 +26,28 @@
                                         <label for="hue-demo">ID phim </label>
                                         <input type="text" id="tengio" class="form-control demo" name="idphim">
                                     </div> -->
-                                    <div class="form-group row">
+                                    <!-- <div class="form-group row">
                                         <label class="col-md-3 m-t-15">Phim</label><br>
                                         <div class="col-md-12">
                                             <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="idphim">                                              
-                                            <?php
-                                                foreach($listphim as $phim){
-                                                    extract($phim);
-                                                    echo '<option value="'.$id.'">'.$name.'</option>';
-                                                }
-                                            ?>                                      
+                                                                             
                                             </select>
                                         </div>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <label for="hue-demo">Phim</label>
+                                        <input type="text"  class="form-control demo" name="idphim" value=<?php echo $id ?>>
                                     </div>
                                     <div class="form-group">
                                         <label for="hue-demo">Ngày chiếu</label>
-                                        <input type="text" id="tengio" class="form-control demo" name="ngaychieu">
+                                        <input type="text" id="" class="form-control demo" name="ngaychieu">
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3 m-t-15">Giờ chiếu</label><br>
-                                        <div class="col-md-12">
-                                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="idgio">                                              
-                                            <?php
-                                                foreach($listkhunggio as $gio){
-                                                    extract($gio);
-                                                    echo '<option value="'.$id.'">'.$gio_bat_dau.'</option>';
-                                                }
-                                            ?>                                      
-                                            </select>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="trangthai">Trạng thái</label>
+                                        <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="trangthai">                                                                                
+                                            <option value="0">Phim đang chiếu</option>         
+                                            <option value="1">Phim sắp chiếu</option>                          
+                                        </select>
                                     </div>
                                     <!-- <div class="form-group">
                                         <label for="hue-demo">ID giờ</label>

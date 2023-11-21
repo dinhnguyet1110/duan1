@@ -46,7 +46,10 @@
                             </div>
                             <div class="form-group m-t-20">
                                 <label for="trangthai">Trạng thái</label>
-                                <input type="text" id="trangthai" class="form-control demo" name="trangthai" required>
+                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="trangthai">                                                                                
+                                    <option value="0">Phim đang chiếu</option>         
+                                    <option value="1">Phim sắp chiếu</option>                          
+                                </select>
                             </div>
                         </div>
                     </div>

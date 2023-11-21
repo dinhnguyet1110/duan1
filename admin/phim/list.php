@@ -18,9 +18,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                
                 <div class="form-group row">
                     <h5 class="col-md-1 m-t-15">Thể loại</h5>
-                    <form action="index.php?act=list_phim" method="post" class="col-sm-9">
+                        <form action="index.php?act=list_phim" method="post" class="col-sm-9">
                             <input class="col-sm-6" type="text" name="kyw">
                             <select class="select2 form-control custom-select col-sm-3" name="idtl">
                                 <option value="0" selected>Tất cả</option>
@@ -34,6 +35,9 @@
                             <input type="submit" name="listok" value="Go"></a>
                         </form>
                 </div>
+                <div class="card-body">
+                    <a href="index.php?act=add_phim"><input type="button" class="btn btn-success" value="Nhập thêm"></a>
+                </div>
                 <div class="card">
                     <table class="table">
                         <tr>
@@ -45,7 +49,8 @@
                             <th>Avatar</th>
                             <th>Ngày khởi chiếu</th>
                             <th>Trailer</th>
-                            <th>Status</th>
+                            <th>Trạng thái</th>
+                            <th>Lịch chiếu</th>
                             <th>Thao tác</th>
                         </tr>
                         <?php
@@ -53,6 +58,7 @@
                             extract($phim);
                             $suatl = "index.php?act=suaphim&id=" . $id;
                             $xoatl = "index.php?act=xoaphim&id=" . $id;
+                            $tao_lich = "index.php?act=taolich&id=" . $id;
 
                             // Khai báo biến $avatar với giá trị mặc định để tránh lỗi undefined
                             $avatar = isset($avatar) ? $avatar : '';
@@ -75,16 +81,16 @@
                                 <td>' . $ngaychieu . '</td>
                                 <td>' . $traller . '</td>
                                 <td>' . $status . '</td>
+                                <td><a href="'.$tao_lich.'"><input type="button" class="btn btn-cyan btn-sm" value="Tạo lịch chiếu" ></a></td>
                                 <td><a href="'.$suatl.'"><input type="button" class="btn btn-cyan btn-sm" value="Sửa" ></a>
-                                <a onclick="'."return confirm('Bạn có muốn xóa?')".'" href="'.$xoatl.'"><input type="button" value="Xóa" class="btn btn-danger btn-sm"></a></td>
-                            </tr>';
+                                <a onclick="'."return confirm('Bạn có muốn xóa?')".'" href="'.$xoatl.'"><input type="button" value="Xóa" class="btn btn-danger btn-sm"></a>                              
+                                </td>                     
+                                </tr>';
                         }
                         ?>
                     </table>
                 </div>
-                <div class="card-body">
-                    <a href="index.php?act=add_phim"><input type="button" class="btn btn-success" value="Nhập thêm"></a>
-                </div>
+                
             </div>
         </div>
     </div>

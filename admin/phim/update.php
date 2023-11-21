@@ -47,8 +47,9 @@
                                 <input type="text" id="thoiuong" class="form-control demo" name="thoiluong" value="<?=$thoi_luong?>" required>
                             </div>
                             <div class="form-group m-t-20">
-                                <label for="hinh">Hình</label>
-                                <input type="file" name="hinh">
+                                <label for="hinh">Hình ảnh</label><br>
+                                <img src="../admin/upload/<?php echo $avatar ?>" width="100px" alt="khong anh"><br><br>
+                                <input type="file" name="hinh" value="<?=$avatar ?>">
                             </div>
                             <div class="form-group m-t-20">
                                 <label for="tenphim">Ngày khởi chiếu </label>
@@ -60,7 +61,10 @@
                             </div>
                             <div class="form-group m-t-20">
                                 <label for="trangthai">Trạng thái</label>
-                                <input type="text" id="trangthai" class="form-control demo" name="trangthai" value="<?=$status?>" required>
+                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="trangthai" value="<?=$status?>">                                                                                
+                                    <option value="0">Phim đang chiếu</option>         
+                                    <option value="1">Phim sắp chiếu</option>                          
+                                </select>
                             </div>
                         </div>
                     </div>

@@ -27,7 +27,6 @@
         $phim=pdo_query_one($sql);
         return $phim;
     }
-    
 
     function update_phim($id, $tenphim, $motaphim, $thoiluong, $hinh, $ngaykchieu, $trailer, $trangthai)
 {
@@ -44,7 +43,7 @@ function load_ten_theloai($idtl){
         $sql = "SELECT * FROM the_loai WHERE id=".$idtl;
         $tl = pdo_query_one($sql);
         extract($tl);
-        return $name;
+        return $nametl;
        
     } else {
         return "";
@@ -62,6 +61,17 @@ function loadone_ctphim($id){
     $phim=pdo_query_one($sql);
    
     return $phim;
+}
+
+function load_khunggio($id){
+    $sql="SELECT ngay_chieu, gio_chieu from lich_chieu join khung_gio_chieu on lich_chieu.id=khung_gio_chieu.id_lichchieu where lich_chieu.idphim=".$id;
+    $khunggio=pdo_query($sql);  
+    return $khunggio;
+}
+function gio($id){
+    $sql="SELECT gio_chieu from khung_gio_chieu join lich_chieu on lich_chieu.id=khung_gio_chieu.id_lichchieu where khung_gio_chieu.id_lichchieu=lich_chieu.id";
+    $gio=pdo_query($sql);  
+    return $khunggio;
 }
 
 ?>

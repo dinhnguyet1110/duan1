@@ -25,13 +25,30 @@
                         <form action="index.php?act=update_khunggio" method="post">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="form-group m-t-20">
-                                        <label for="hue-demo">Mã giờ</label>
-                                        <input type="text" id="magio" class="form-control demo" name="magio" value="<?php if(isset($id)&&($id!="")) echo $id; ?>">
-                                    </div>
+                                    <!-- <div class="form-group m-t-20">
+                                        <label for="hue-demo">ID khung giờ chiếu</label>
+                                        <input type="text" id="magio" class="form-control demo" name="magio" value="<?php if(isset($id)&&($id!="")) echo $id; ?>" disabled>
+                                    </div> -->
                                     <div class="form-group">
-                                        <label for="hue-demo">Tên giờ</label>
-                                        <input type="text"  class="form-control demo" name="tengio" value="<?php if(isset($gio_bat_dau)&&($gio_bat_dau!="")) echo $gio_bat_dau; ?>">
+                                        <label for="hue-demo">Giờ chiếu</label>
+                                        <input type="text"  class="form-control demo" name="giochieu" value="<?php if(isset($gio_chieu)&&($gio_chieu!="")) echo $gio_chieu; ?>">
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 m-t-15">ID lịch chiếu</label><br>
+                                        <input type="text" id="tengio" class="form-control demo" name="id_lichchieu"  value="<?=$id_lichchieu?>">
+                                        <!-- <div class="col-md-12">
+                                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="id_lichchieu">                                       
+                                             
+                                                    foreach($listlichchieu as $lichchieu){                                 
+                                                        if($id_lichchieu==$lichchieu['id']){
+                                                        echo '<option value="'.$lichchieu['id'].'" selected>'.$lichchieu['id'].'</option>';
+                                                        }else{
+                                                            echo '<option value="'.$lichchieu['id'].'">'.$lichchieu['id'].'</option>';
+                                                        }
+                                                    }
+                                              
+                                            </select>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>

@@ -8,7 +8,7 @@
                 <h1 class="title  cd-headline clip"><span class="d-block">Đặt vé</span> cho 
                     <span class="color-theme cd-words-wrapper p-0 m-0">
                         <b class="is-visible">Phim</b>
-                        <b>Sự kiện</b>                      
+                        <b>Phim</b>                      
                     </span>
                 </h1>
                 <p>Bán vé an toàn, bảo mật, đáng tin cậy. Tấm vé xem giải trí trực tiếp của bạn. </p>
@@ -34,35 +34,35 @@
                 </div>
                 <div class="tab-area">
                     <div class="tab-item active">
-                        <form class="ticket-search-form">
+                        <form class="ticket-search-form" method="post" action="index.php?act=phim" >
                             <div class="form-group large">
-                                <input type="text" placeholder="Tìm kiếm phim">
+                                <input type="text" placeholder="Tìm kiếm phim" name="kyw">
                                 <button type="submit"><i class="fas fa-search"></i></button>
                             </div>                         
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <div class="thumb">
                                     <img src="assets/images/ticket/date.png" alt="ticket">
                                 </div>
                                 <span class="type">Ngày</span>
-        <!--Thêm ngày-->        <select class="select-bar">
-                                    <option value="26-12-19">23/10/2019</option>
-                                    <option value="26-12-19">24/10/2019</option>
-                                    <option value="26-12-19">25/10/2019</option>
-                                    <option value="26-12-19">26/10/2019</option>
+                                <select class="select-bar">
+                                    <option value="26-12-19">23/10/2023</option>
+                                    <option value="26-12-19">24/10/2023</option>
+                                    <option value="26-12-19">25/10/2023</option>
+                                    <option value="26-12-19">26/10/2023</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <div class="thumb">
-        <img src="assets/images/ticket/dh.png" alt="ticket">
+                                    <img src="assets/images/ticket/dh.png" alt="ticket">
                                 </div>
                                 <span class="type">Giờ</span>
-        <!--Thêm giờ-->        <select class="select-bar">
-                                    <option value="26-12-19">23/10/2019</option>
-                                    <option value="26-12-19">24/10/2019</option>
-                                    <option value="26-12-19">25/10/2019</option>
-                                    <option value="26-12-19">26/10/2019</option>
+                                <select class="select-bar">
+                                    <option value="26-12-19">9h20p</option>
+                                    <option value="26-12-19">13h30p</option>
+                                    <option value="26-12-19">16h</option>
+                                    <option value="26-12-19">20h20p</option>
                                 </select>
-                            </div>
+                            </div> -->
                         </form>
                     </div>
                     

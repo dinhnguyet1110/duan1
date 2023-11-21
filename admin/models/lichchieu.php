@@ -1,6 +1,6 @@
 <?php
-        function insert_lichchieu($idphim,$ngaychieu,$idgio){
-            $sql = "INSERT INTO lich_chieu(idphim,ngay_chieu,idgio) values('$idphim','$ngaychieu','$idgio')";
+        function insert_lichchieu($idphim,$ngaychieu,$trangthai){
+            $sql = "INSERT INTO lich_chieu(idphim,ngay_chieu,trang_thai) values('$idphim','$ngaychieu','$trangthai')";
             pdo_execute($sql);
         }
 
@@ -21,8 +21,9 @@
             return $kg;
         }
 
-        function update_lichchieu($id,$idphim,$ngaychieu,$idgio){
-            $sql = "UPDATE lich_chieu set idphim='".$idphim."', ngay_chieu='".$ngaychieu."', idgio='".$idgio."'  where id=".$id;
+        function update_lichchieu($id,$idphim,$ngaychieu,$trangthai){
+            $sql = "UPDATE lich_chieu set idphim='".$idphim."', ngay_chieu='".$ngaychieu."', trang_thai='".$trangthai."'  where id=".$id;
             pdo_execute($sql);
         }
+
 ?>

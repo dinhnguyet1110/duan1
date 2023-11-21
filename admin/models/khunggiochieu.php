@@ -1,6 +1,6 @@
 <?php
-        function insert_khunggio($tengio){
-            $sql = "INSERT INTO khung_gio_chieu(gio_bat_dau) values('$tengio')";
+        function insert_khunggio($giochieu,$id_lichchieu){
+            $sql = "INSERT INTO khung_gio_chieu(gio_chieu,id_lichchieu) values('$giochieu','$id_lichchieu')";
             pdo_execute($sql);
         }
 
@@ -21,8 +21,8 @@
             return $kg;
         }
 
-        function update_khunggio($id,$tengio){
-            $sql = "UPDATE khung_gio_chieu set gio_bat_dau='".$tengio."' where id=".$id;
+        function update_khunggio($id,$giochieu,$id_lichchieu){
+            $sql = "UPDATE khung_gio_chieu set gio_chieu='".$giochieu."' where id=".$id;
             pdo_execute($sql);
         }
 ?>

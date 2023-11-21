@@ -25,15 +25,16 @@
                         <form action="index.php?act=update_lichchieu" method="post">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="hue-demo">ID lịch chiếu</label>
-                                        <input type="text" id="tengio" class="form-control demo" name="ngaychieu"  value="<?=$id?>">
-                                    </div>
+                                        <input type="text" id="tengio" class="form-control demo" name="ngaychieu"  value="">
+                                    </div> -->
                                     <div class="form-group row">
                                         <label class="col-md-3 m-t-15">Phim</label><br>
-                                        <div class="col-md-12">
+                                        <input type="text" id="tengio" class="form-control demo" name="idphim"  value="<?=$idphim?>" disabled>
+                                        <!-- <div class="col-md-12">
                                             <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="idphim">                                       
-                                                <?php
+                                               
                                                     foreach($listphim as $phim){                                 
                                                         if($idphim==$phim['id']){
                                                         echo '<option value="'.$phim['id'].'" selected>'.$phim['name'].'</option>';
@@ -41,31 +42,22 @@
                                                             echo '<option value="'.$phim['id'].'">'.$phim['name'].'</option>';
                                                         }
                                                     }
-                                                ?>
+                                                
                                             </select>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     
                                     <div class="form-group">
                                         <label for="hue-demo">Ngày chiếu</label>
-                                        <input type="text" id="tengio" class="form-control demo" name="ngaychieu"  value="<?=$ngay_chieu?>">
+                                        <input type="text" id="" class="form-control demo" name="ngaychieu"  value="<?=$ngay_chieu?>">
                                     </div>
 
-                                    <div class="form-group row">
-                                        <label class="col-md-3 m-t-15">Giờ Chiếu</label><br>
-                                        <div class="col-md-12">
-                                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="idgio">                                       
-                                                <?php
-                                                    foreach($listkhunggio as $gio){                                 
-                                                        if($idgio==$gio['id']){
-                                                        echo '<option value="'.$gio['id'].'" selected>'.$gio['gio_bat_dau'].'</option>';
-                                                        }else{
-                                                            echo '<option value="'.$gio['id'].'">'.$gio['gio_bat_dau'].'</option>';
-                                                        }
-                                                    }
-                                                ?>
-                                            </select>
-                                        </div>
+                                    <div class="form-group m-t-20">
+                                        <label for="trangthai">Trạng thái</label>
+                                        <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="trangthai" value="<?=$status?>">                                                                                
+                                            <option value="0">Phim đang chiếu</option>         
+                                            <option value="1">Phim sắp chiếu</option>                          
+                                        </select>
                                     </div>
                                 </div>
                             </div>

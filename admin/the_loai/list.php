@@ -18,7 +18,10 @@
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
+                        <div class="col-12"> <div class="card-body">
+                            <a href="index.php?act=add_theloai"><input type="button"class="btn btn-success" value="Nhập thêm"></a>
+                            
+                        </div>
                         <div class="card">
                             <table class="table">
                             <tr>
@@ -44,10 +47,7 @@
                             ?>
                             </table>
                         </div>
-                        <div class="card-body">
-                            <a href="index.php?act=add_theloai"><input type="button"class="btn btn-success" value="Nhập thêm"></a>
-                            
-                        </div>
+                       
                     </div>
                         
                     </div>

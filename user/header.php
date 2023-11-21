@@ -50,7 +50,7 @@
         <div class="container">
             <div class="header-wrapper">
                 <div class="logo">
-                    <a href="index-2.html">
+                    <a href="index.php">
                         <img src="assets/images/logo/logo2.png" alt="logo">
                     </a>
                 </div>
@@ -65,32 +65,13 @@
                                 <?php extract($tl) ?>
                             <li>
                                 <?php $linktl="index.php?act=phim&idtl=".$id; 
-                                 echo  '<a href="'.$linktl.'">'.$name.'</a>'; ?>
+                                 echo  '<a href="'.$linktl.'">'.$nametl.'</a>'; ?>
                             </li>
                             <?php endforeach ?> 
                                                   
                         </ul>
                     </li>
-                    <li>
-                        <a href="#0">Sự kiện</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="events.html">Events</a>
-                            </li>
-                            <li>
-                                <a href="event-details.html">Event Details</a>
-                            </li>
-                            <li>
-                                <a href="event-speaker.html">Event Speaker</a>
-                            </li>
-                            <li>
-                                <a href="event-ticket.html">Event Ticket</a>
-                            </li>
-                            <li>
-                                <a href="event-checkout.html">Event Checkout</a>
-                            </li>
-                        </ul>
-                    </li>
+                    
                     
                     <li>
 <!--Trạng thái phim-->          <a href="#0">Phim</a>
@@ -104,15 +85,27 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="#0">Page</a>
+                    </li>
+                    <li>
                         <a href="#0">Giới thiệu</a>
                        
                     </li>
                     <li>
                         <a href="contact.html">Liên hệ</a>
                     </li>
-                    <li class="header-button pr-0">
-                        <a href="sign-up.html">Đăng nhập</a>
-                    </li>
+                    <?php if (!$_SESSION) { ?>
+                        <li class="header-button pr-0">
+                            <a href="?act=dangnhap">Đăng nhập</a>
+                        </li>
+                    <?php } else { ?> 
+                                  
+                    <div style=" margin-left:100px">
+                    <i class="far fa-user">  </i>
+                        Hello <?php echo $_SESSION['user']?>
+                        <a style=" margin-left:9px" href="index.php?act=dangxuat">Đăng xuất</a></div>
+                    <?php } ?>
+                        
                 </ul>
                 <div class="header-bar d-lg-none">
 					<span></span>
