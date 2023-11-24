@@ -39,30 +39,7 @@
                                 <input type="text" placeholder="Tìm kiếm phim" name="kyw">
                                 <button type="submit"><i class="fas fa-search"></i></button>
                             </div>                         
-                            <!-- <div class="form-group">
-                                <div class="thumb">
-                                    <img src="assets/images/ticket/date.png" alt="ticket">
-                                </div>
-                                <span class="type">Ngày</span>
-                                <select class="select-bar">
-                                    <option value="26-12-19">23/10/2019</option>
-                                    <option value="26-12-19">24/10/2019</option>
-                                    <option value="26-12-19">25/10/2019</option>
-                                    <option value="26-12-19">26/10/2019</option>
-                                </select>
-                            </div> -->
-                            <!-- <div class="form-group">
-                                <div class="thumb">
-                                <img src="assets/images/ticket/dh.png" alt="ticket">
-                                </div>
-                                <span class="type">Giờ</span>
-                                <select class="select-bar">
-                                    <option value="26-12-19">23/10/2019</option>
-                                    <option value="26-12-19">24/10/2019</option>
-                                    <option value="26-12-19">25/10/2019</option>
-                                    <option value="26-12-19">26/10/2019</option>
-                                </select>
-                            </div> -->
+                            
                         </form>
                     </div>
                     

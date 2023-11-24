@@ -8,6 +8,14 @@
         }else{
             $hinh ="Không có hình";
         }
+
+    $video = "../admin/upload/video/" . $traller;
+    if (is_file($video)) {
+        $trailer = $video;
+    } else {
+        $trailer = "Không có video";
+    }
+
 ?>
 <div class="page-wrapper">
     <div class="page-breadcrumb">
@@ -57,7 +65,8 @@
                             </div>
                             <div class="form-group m-t-20">
                                 <label for="trailer">Trailer</label>
-                                <input type="text" id="trailer" class="form-control demo" name="trailer" value="<?=$traller?>" required>
+                                <a src="../admin/upload/video<?php echo $video ?>" width="100px" alt="khong anh"></a><br><br>
+                                <input type="file" id="trailer" class="form-control demo" name="trailer" value="<?=$traller?>" required>
                             </div>
                             <div class="form-group m-t-20">
                                 <label for="trangthai">Trạng thái</label>

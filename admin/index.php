@@ -55,7 +55,7 @@
                     $motaphim = $_POST['motaphim'];
                     $thoiluong = $_POST['thoiluong'];
                     $ngaykchieu = $_POST['ngaykchieu'];
-                    $trailer = $_POST['trailer'];
+                    // $trailer = $_POST['trailer'];
                     $trangthai = $_POST['trangthai'];
                     if(isset($_FILES['hinh'])) {
                         $hinh=$_FILES['hinh']['name'];
@@ -65,6 +65,15 @@
                     } else {
                         // Xử lý trường hợp không có ảnh được tải lên.
                         $hinh = "";
+                    }
+                    if(isset($_FILES['trailer'])) {
+                        $trailer=$_FILES['trailer']['name'];
+                        $target_dir1 = "../admin/upload/video/";
+                        $target_file1= $target_dir1 . basename($_FILES["trailer"]["name"]);
+                        move_uploaded_file($_FILES["trailer"]["tmp_name"], $target_file1);
+                    } else {
+                        // Xử lý trường hợp không có ảnh được tải lên.
+                        $traller = "";
                     }
                     insert_phim($tenphim, $motaphim, $thoiluong, $hinh, $ngaykchieu, $trailer, $trangthai, $idtl);
                     $thongbao="Thêm thành công";
@@ -108,7 +117,7 @@
                     $motaphim = $_POST['motaphim'];
                     $thoiluong = $_POST['thoiluong'];
                     $ngaykchieu = $_POST['ngaykchieu'];
-                    $trailer = $_POST['trailer'];
+                    // $trailer = $_POST['trailer'];
                     $trangthai = $_POST['trangthai'];
                     if(isset($_FILES['hinh'])) {
                         $hinh=$_FILES['hinh']['name'];
@@ -118,6 +127,15 @@
                     } else {
                         // Xử lý trường hợp không có ảnh được tải lên.
                         $hinh = "";
+                    }
+                    if(isset($_FILES['trailer'])) {
+                        $trailer=$_FILES['trailer']['name'];
+                        $target_dir = "../admin/upload/video/";
+                        $target_file = $target_dir . basename($_FILES["trailer"]["name"]);
+                        move_uploaded_file($_FILES["trailer"]["tmp_name"], $target_file);
+                    } else {
+                        // Xử lý trường hợp không có ảnh được tải lên.
+                        $traller = "";
                     }
             
                     // Gọi hàm thêm mới phim từ cơ sở dữ liệu
@@ -133,10 +151,13 @@
             // quản lý khung giờ   
             case 'tao_gio':
                 $id=$_GET['id'];  
+                $listphong = loadall_phong();
                 $listlichchieu = loadall_lichchieu();
                 include "../admin/khung_gio_chieu/add.php";
                 break;   
             case 'list_khunggio':
+
+                $listphong = loadall_phong();
                 $listkhunggio = loadall_khunggio();
                 include "../admin/khung_gio_chieu/list.php";
                 break;
@@ -144,8 +165,10 @@
                 if(isset($_POST['themmoi']) && ($_POST['themmoi'])){
                     $giochieu=$_POST['giochieu'];
                     $id_lichchieu=$_POST['id_lichchieu'];
-                    insert_khunggio($giochieu,$id_lichchieu);
+                    $id_phong=$_POST['id_phong'];
+                    insert_khunggio($giochieu,$id_lichchieu,$id_phong);
                 }     
+                $listphong = loadall_phong();
                 $listlichchieu = loadall_lichchieu();   
                 $listkhunggio = loadall_khunggio();                
                 include "../admin/khung_gio_chieu/list.php";
@@ -161,6 +184,7 @@
                 if(isset($_GET['id'])&&($_GET['id']>0)){
                     $kg=loadone_khunggio($_GET['id']);
                 }
+                $listphong = loadall_phong();
                 $listlichchieu = loadall_lichchieu();
                 include "../admin/khung_gio_chieu/update.php";
                 break;
@@ -169,9 +193,11 @@
                     $id=$_POST['id'];
                     $giochieu=$_POST['giochieu'];
                     $id_lichchieu=$_POST['id_lichchieu'];
-                    update_khunggio($id,$giochieu,$id_lichchieu);
+                    $id_phong=$_POST['id_phong'];
+                    update_khunggio($id,$giochieu,$id_lichchieu,$id_phong);
                     $thongbao="Cập nhật thành công";
                 }  
+                $listphong = loadall_phong();
                 $listlichchieu = loadall_lichchieu();
                 $listkhunggio = loadall_khunggio();
                 include "../admin/khung_gio_chieu/list.php";
@@ -184,6 +210,7 @@
                 include "../admin/lich_chieu/add.php";
                 break;
             case 'list_lichchieu':
+                
                 $listlichchieu = loadall_lichchieu();
                 include "../admin/lich_chieu/list.php";
                 break;
@@ -257,8 +284,8 @@
             case 'add_phongchieu':
                 if(isset($_POST['themmoi']) && ($_POST['themmoi'])){
                     $ten_phong=$_POST['ten_phong'];
-                    $so_ghe=$_POST['so_ghe'];
-                    insert_phong($ten_phong,$so_ghe);
+                    
+                    insert_phong($ten_phong);
                 }  
                 include "../admin/phong_chieu/add.php";
                 break;
@@ -277,10 +304,9 @@
                 break;
             case 'update_phongchieu':
                 if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
-                    $so_ghe=$_POST['so_ghe'];
                     $ten_phong=$_POST['ten_phong'];
                     $id=$_POST['id'];
-                    update_phong($id,$ten_phong,$so_ghe);
+                    update_phong($id,$ten_phong);
                     $thongbao="Cập nhật thành công";
                 }  
                 $listphong = loadall_phong();

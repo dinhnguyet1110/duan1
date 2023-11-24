@@ -63,13 +63,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>Thông tin tài khoản</a>
+                                <a class="dropdown-item" href="index.php?act=thongtin_tk"><i class="ti-user m-r-5 m-l-5"></i>Thông tin tài khoản</a>
                                
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i>Cập nhật tài khoản</a>
+                                <a class="dropdown-item" href="index.php?act=update_tk"><i class="ti-settings m-r-5 m-l-5"></i>Cập nhật tài khoản</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?php  unset($_SESSION['user']);    ?>login.php"><i class="fa fa-power-off m-r-5 m-l-5"></i>Thoát</a>
+                                <a class="dropdown-item" href="<?php unset($_SESSION['user']); ?>login.php"><i class="fa fa-power-off m-r-5 m-l-5"></i>Thoát</a>
                                 <div class="dropdown-divider"></div>
-                                <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">Xem thông tin tài khoản</a></div>
                             </div>
                         </li>
                     </ul>
@@ -88,7 +87,6 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_lichchieu" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Lịch chiếu</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_khunggio" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Khung giờ chiếu</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_phongchieu" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Phòng chiếu phim</span></a></li>               
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_ghe" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Ghế</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_taikhoan" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Tài khoản</span></a></li>               
                     </ul>
                 </nav>

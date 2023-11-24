@@ -28,7 +28,6 @@
                                 <th></th>
                                 <th>Mã phòng</th>
                                 <th>Tên phòng</th>
-                                <th>số ghế</th>
                                 <th>Thao tác</th>
                             </tr>
                             <?php
@@ -40,7 +39,6 @@
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td>'.$id.'</td>
                                         <td>'.$ten_phong.'</td>
-                                        <td>'.$so_ghe.'</td>
                                         <td><a href="'.$suaphong.'"><input type="button" class="btn btn-cyan btn-sm" value="Sửa"></a>
                                         <a onclick="'."return confirm('Bạn có muốn xóa?')".'" href="'.$xoaphong.'"><input type="button" value="Xóa" class="btn btn-danger btn-sm"></a></td>
                                     </tr>

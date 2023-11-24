@@ -63,12 +63,22 @@
                             // Khai báo biến $avatar với giá trị mặc định để tránh lỗi undefined
                             $avatar = isset($avatar) ? $avatar : '';
                             
-                              $hinhpath = "../admin/upload/" . $avatar;
+                            $hinhpath = "../admin/upload/" . $avatar;
 
                             if (is_file($hinhpath)) {
                                 $hinh = "<img src='" . $hinhpath . "' height='80'>";
                             } else {
                                 $hinh = "Không có hình";
+                            }
+                             // Khai báo biến $traller với giá trị mặc định để tránh lỗi undefined
+                            $trailer= isset($traller) ? $traller : '';
+                            
+                            $video = "../admin/upload/video/" . $traller;
+
+                            if (is_file($video)) {
+                                $trailer = $video;
+                            } else {
+                                $trailer = "Không có hình";
                             }
 
                             echo '<tr>

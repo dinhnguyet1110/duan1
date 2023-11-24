@@ -27,7 +27,8 @@
                                 <th></th>
                                 <th>Mã giờ</th>
                                 <th>Giờ chiếu</th>
-                                <th>ID suất chiếu</th>
+                                <th>ID lịch chiếu</th>
+                                <th>ID phòng</th>
                                 <th>Thao tác</th>
                             </tr>
                             <?php
@@ -40,6 +41,7 @@
                                         <td>'.$id.'</td>
                                         <td>'.$gio_chieu.'</td>
                                         <td>'.$id_lichchieu.'</td>
+                                        <td>'.$id_phong.'</td>
                                         <td><a href="'.$suakg.'"><input type="button" class="btn btn-cyan btn-sm" value="Sửa"></a>
                                         <a onclick="'."return confirm('Bạn có muốn xóa?')".'" href="'.$xoakg.'"><input type="button" value="Xóa" class="btn btn-danger btn-sm"></a></td>
                                     </tr>

@@ -36,19 +36,21 @@
                                     <div class="form-group row">
                                         <label class="col-md-3 m-t-15">ID lịch chiếu</label><br>
                                         <input type="text" id="tengio" class="form-control demo" name="id_lichchieu"  value="<?=$id_lichchieu?>">
-                                        <!-- <div class="col-md-12">
-                                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="id_lichchieu">                                       
-                                             
-                                                    foreach($listlichchieu as $lichchieu){                                 
-                                                        if($id_lichchieu==$lichchieu['id']){
-                                                        echo '<option value="'.$lichchieu['id'].'" selected>'.$lichchieu['id'].'</option>';
-                                                        }else{
-                                                            echo '<option value="'.$lichchieu['id'].'">'.$lichchieu['id'].'</option>';
-                                                        }
+                                        
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 m-t-15">ID phòng</label><br>
+                                        <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="id_phong">                                       
+                                            <?php
+                                                foreach($listphong as $phong){                                 
+                                                    if($id_phong==$phong['id']){
+                                                    echo '<option value="'.$phong['id'].'" selected>'.$phong['id'].'</option>';
+                                                    }else{
+                                                        echo '<option value="'.$phong['id'].'">'.$phong['id'].'</option>';
                                                     }
-                                              
-                                            </select>
-                                        </div> -->
+                                                }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

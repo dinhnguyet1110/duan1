@@ -33,10 +33,7 @@
                                         <label for="hue-demo">Tên phòng</label>
                                         <input type="text"  class="form-control demo" name="ten_phong" value="<?php if(isset($ten_phong)&&($ten_phong!="")) echo $ten_phong; ?>">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="hue-demo">ghế</label>
-                                        <input type="text"  class="form-control demo" name="so_ghe" value="<?php if(isset($so_ghe)&&($so_ghe!="")) echo $so_ghe; ?>">
-                                    </div>
+
                                 </div>
                             </div>
                             <input type="hidden" name="id" value="<?php if(isset($id)&&($id>0)) echo $id; ?>">

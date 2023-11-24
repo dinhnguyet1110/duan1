@@ -30,19 +30,19 @@
                                             <label for="hue-demo">ID lịch chiếu</label>
                                             <input type="text"  class="form-control demo" name="id_lichchieu" value=<?php echo $id ?>>
                                         </div>
-                                        <!-- <div class="form-group row">
-                                            <label class="col-md-3 m-t-15">ID lịch chiếu</label><br>
+                                        <div class="form-group row">
+                                            <label class="col-md-3 m-t-15">ID phòng</label><br>
                                             <div class="col-md-12">
-                                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="id_lichchieu">                                              
-                                                
-                                                    foreach($listlichchieu as $lichchieu){
-                                                        extract($lichchieu);
-                                                        echo '<option>'.$id.'</option>';
-                                                    }
-                                                                                   
+                                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="id_phong">                                              
+                                                    <?php
+                                                        foreach($listphong as $phong){
+                                                            extract($phong);
+                                                            echo '<option value="'.$id.'">'.$ten_phong.'</option>';
+                                                        }
+                                                    ?>                             
                                                 </select>
                                             </div>
-                                        </div> -->
+                                        </div>
                                 
                                 </div>
                             </div>

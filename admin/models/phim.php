@@ -21,6 +21,29 @@
         return $listphim;
     }
 
+    function loadall_phim_tt0($status){
+        $sql="SELECT * FROM phim where status=0";   
+        $phim0 = pdo_query($sql);
+        return $phim1;
+    }
+
+    function loadall_phim_tt1($status){
+        $sql="SELECT * FROM phim where status=1";   
+        $phim0 = pdo_query($sql);
+        return $phim1;
+    }
+
+    function load_ten_theloai($idtl){
+        if($idtl > 0){
+            $sql = "SELECT * FROM the_loai WHERE id=".$idtl;
+            $tl = pdo_query_one($sql);
+            extract($tl);
+            return $nametl;
+           
+        } else {
+            return "";
+        }
+    }
 
     function loadone_phim($id){
         $sql="SELECT * FROM phim where id=".$id;
@@ -38,17 +61,7 @@
     }
     pdo_execute($sql);
 }
-function load_ten_theloai($idtl){
-    if($idtl > 0){
-        $sql = "SELECT * FROM the_loai WHERE id=".$idtl;
-        $tl = pdo_query_one($sql);
-        extract($tl);
-        return $nametl;
-       
-    } else {
-        return "";
-    }
-}
+
 
 function loadall_phim_home(){
     $sql = "SELECT * FROM phim WHERE 1 ORDER BY id desc limit 0,12";
@@ -64,14 +77,10 @@ function loadone_ctphim($id){
 }
 
 function load_khunggio($id){
-    $sql="SELECT ngay_chieu, gio_chieu from lich_chieu join khung_gio_chieu on lich_chieu.id=khung_gio_chieu.id_lichchieu where lich_chieu.idphim=".$id;
+    $sql="SELECT lich_chieu.id, ngay_chieu, gio_chieu, id_phong from lich_chieu join khung_gio_chieu on lich_chieu.id=khung_gio_chieu.id_lichchieu where lich_chieu.idphim=".$id;
     $khunggio=pdo_query($sql);  
     return $khunggio;
 }
-function gio($id){
-    $sql="SELECT gio_chieu from khung_gio_chieu join lich_chieu on lich_chieu.id=khung_gio_chieu.id_lichchieu where khung_gio_chieu.id_lichchieu=lich_chieu.id";
-    $gio=pdo_query($sql);  
-    return $khunggio;
-}
+
 
 ?>

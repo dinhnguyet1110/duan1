@@ -45,7 +45,7 @@
                                         <td>'.$ngay_chieu.'</td>
                                         <td>'.$idphim.'</td>
                                         <td>'.$trang_thai.'</td>
-                                        <td><a href="'.$tao_gio.'"><input type="button" class="btn btn-cyan btn-sm" value="Khung giờ chiếu" ></a></td>
+                                        <td><a href="'.$tao_gio.'"><input type="button" class="btn btn-cyan btn-sm" value="Tạo giờ chiếu" ></a></td>
                                         <td><a href="'.$sualich.'"><input type="button" class="btn btn-cyan btn-sm" value="Sửa" ></a>
                                         <a onclick="'."return confirm('Bạn có muốn xóa?')".'" href="'.$xoalich.'"><input type="button" value="Xóa" class="btn btn-danger btn-sm"></a></td>
                                     </tr>

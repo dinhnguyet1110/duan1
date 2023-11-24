@@ -26,4 +26,16 @@
             pdo_execute($sql);
         }
 
+        function load_ngay($id){
+            $sql="SELECT id,ngay_chieu FROM lich_chieu where lich_chieu.idphim=".$id;
+            $ngay = pdo_query($sql);
+            return $ngay;
+        }
+        function load_gio($id){
+            $sql="SELECT id_phong,gio_chieu FROM khung_gio_chieu  where id_lichchieu=".$id;
+            $gio = pdo_query($sql);
+            return $gio;
+        }
+
+
 ?>

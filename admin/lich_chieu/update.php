@@ -29,22 +29,9 @@
                                         <label for="hue-demo">ID lịch chiếu</label>
                                         <input type="text" id="tengio" class="form-control demo" name="ngaychieu"  value="">
                                     </div> -->
-                                    <div class="form-group row">
-                                        <label class="col-md-3 m-t-15">Phim</label><br>
-                                        <input type="text" id="tengio" class="form-control demo" name="idphim"  value="<?=$idphim?>" disabled>
-                                        <!-- <div class="col-md-12">
-                                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;" name="idphim">                                       
-                                               
-                                                    foreach($listphim as $phim){                                 
-                                                        if($idphim==$phim['id']){
-                                                        echo '<option value="'.$phim['id'].'" selected>'.$phim['name'].'</option>';
-                                                        }else{
-                                                            echo '<option value="'.$phim['id'].'">'.$phim['name'].'</option>';
-                                                        }
-                                                    }
-                                                
-                                            </select>
-                                        </div> -->
+                                    <div class="form-group">
+                                        <label for="hue-demo">Phim</label>
+                                        <input type="text"  class="form-control demo" name="idphim" value=<?php echo $id ?>>
                                     </div>
                                     
                                     <div class="form-group">

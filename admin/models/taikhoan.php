@@ -21,8 +21,20 @@
             return $listtaikhoan;
         }
         function dangnhap($user,$pass) {
-            $sql="SELECT * FROM taikhoan WHERE user='$user' and pass='$pass'";
+            $sql="SELECT * FROM taikhoan WHERE user='".$user."' and pass='".$pass."'";
             $taikhoan = pdo_query_one($sql);
             return $taikhoan;
         }  
+
+        function checkemail($email){
+            $sql="SELECT * FROM taikhoan where email='".$email."'";
+            $tk=pdo_query_one($sql);
+            return $tk;
+        }
+
+    function update_taikhoan($id,$user,$pass,$email,$dia_chi,$sdt){     
+        $sql = "UPDATE taikhoan set user='".$user."', pass='".$pass."', email='".$email."', dia_chi='".$dia_chi."', sdt='".$sdt."' where id=".$id;
+        pdo_execute($sql);
+    }
+
 ?>

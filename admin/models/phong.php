@@ -1,6 +1,6 @@
 <?php
-        function insert_phong($ten_phong,$so_ghe){
-            $sql = "INSERT INTO phong_chieu(ten_phong,so_ghe)values('$ten_phong','$so_ghe')";
+        function insert_phong($ten_phong){
+            $sql = "INSERT INTO phong_chieu(ten_phong)values('$ten_phong')";
             pdo_execute($sql);
         }
 
@@ -21,8 +21,10 @@
             return $phong;
         }
 
-        function update_phong($id,$ten_phong,$so_ghe){
-            $sql = "UPDATE phong_chieu set ten_phong='".$ten_phong."',so_ghe='".$so_ghe."' where id=".$id;
+        function update_phong($id,$ten_phong){
+            $sql = "UPDATE phong_chieu set ten_phong='".$ten_phong."' where id=".$id;
             pdo_execute($sql);
         }
+
+
 ?>

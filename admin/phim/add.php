@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group m-t-20">
                                 <label for="trailer">Trailer</label>
-                                <input type="text" id="trailer" class="form-control demo" name="trailer" required>
+                                <input type="file" id="trailer" class="form-control demo" name="trailer" required>
                             </div>
                             <div class="form-group m-t-20">
                                 <label for="trangthai">Trạng thái</label>

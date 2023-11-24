@@ -30,10 +30,7 @@
                                             <label for="hue-demo">Tên Phòng</label>
                                             <input type="text" id="ten_phong" class="form-control demo" name="ten_phong">
                                         </div>       
-                                        <div class="form-group">
-                                            <label for="hue-demo">Ghế</label>
-                                            <input type="text" id="so_ghe" class="form-control demo" name="so_ghe">
-                                        </div>                                   
+                                                                       
                                 </div>
                             </div>
                           

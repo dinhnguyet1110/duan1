@@ -43,39 +43,78 @@
                         <i class="flaticon-double-right-arrows-angles"></i>
                     </a>
                 </div>
-        <script>
-           
-        </script>
-            
-                <div class="tab-item date-item">
-                    <select class="select-bar" name="ngaychieu" >                                              
-                        <?php
-                            foreach($khunggio as $lichchieu){
-                                extract($lichchieu);
-                                echo '<option value="'.$id_phim.'">'.$ngay_chieu.'</option>';
-                            }
-                        ?>                                      
-                    </select>
-                </div>
-                <div class="tab-yyyitem date-item">
-                    <select class="select-bar" name="giochieu">                                              
-                        <?php
-                            foreach($khunggio as $lichchieu){
-                                extract($lichchieu);
-                                echo '<option value="'.$id_lichchieu.'">'.$gio_chieu.'</option>';
-                            }
-                        ?>                                      
-                    </select>
-                </div>
-               
-                <div class="item date-item">
-                <a href="" class="custom-button">Đặt vé</a>
-                </div>
-            </div>
-        </div>
-    </section>
                                                   
-                   
+                <style>
+                    .ml-20{
+                        margin-left:20px;
+                        float: left;
+                    }
+                    .ml-30{
+                        margin-left:33px;
+                        
+                    }
+                    .box{
+                        width: 90px;
+                        height:30px;
+                        background:#3366FF;
+                        color:Silver;
+                        border: 1px solid black;
+                        text-align:center;
+                        border-radius:3px;
+                    }
+                    .mb-30{
+                        margin-bottom:30px;
+                    }
+                </style>   
+                <div class="top-side">
+                    <div class="tab-item date-item mb-30">
+                        <h6>Ngày chiếu: </h6>
+                        <?php
+                            $link='index.php?act=ctphim&id='.$_GET['id'].'&idngay=';
+                            foreach($ngay as $day){
+                                extract($day);
+                                echo ' 
+                                <a class="ml-20 box" href="'.$link.''.$id.' "> '.$ngay_chieu.'</a><br> ';
+                            }
+                        ?> 
+                    </div>
+                    <div class="tab-item date-item">
+                        <h6>Giờ chiếu: </h6>
+                        <?php
+                            if(isset($_GET['idngay'])  ){
+                                $id= $_GET['idngay'];                 
+                                $gio=load_gio($id);                          
+                                foreach($gio as $time){
+                                extract($time);
+                                echo '<a class="ml-20 box">'.$gio_chieu.'</a>';
+                                
+                                } 
+                            } 
+                            else{
+                                $id_phong="";
+                            }                                                             
+                        ?>
+                    </div>
+                  
+                </div>
+                <div class="item date-item">
+                    
+
+                    <?php
+                        if(isset($_SESSION['user'])&& isset($_GET['idngay'])){
+                           
+                            echo '<a class="custom-button" href="index.php?act=phong&idphong='.$id_phong.'&idphim='.$_GET['id'].'">Đặt vé</a>';
+
+                        }else{
+                            echo '<a class="custom-button" href="index.php?act=dangnhap">Đặt vé</a>';
+                        }
+                    ?>
+
+                </div>
+            
+            </div>
+    </section>
+       
     <!-- ==========Book-Section========== -->
 
     <!-- ==========Movie-Section========== -->
@@ -148,46 +187,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="movie-review-item">
-                                        <div class="author">
-                                            <div class="thumb">
-                                                <a href="#0">
-                                                    <img src="assets/images/cast/cast04.jpg" alt="cast">
-                                                </a>
-                                            </div>
-                                            <div class="movie-review-info">
-                                                <span class="reply-date">13 Days Ago</span>
-                                                <h6 class="subtitle"><a href="#0">rudra rai</a></h6>
-                                                <span><i class="fas fa-check"></i> verified review</span>
-                                            </div>
-                                        </div>
-                                        <div class="movie-review-content">
-                                            <div class="review">
-                                                <i class="flaticon-favorite-heart-button"></i>
-                                                <i class="flaticon-favorite-heart-button"></i>
-                                                <i class="flaticon-favorite-heart-button"></i>
-                                                <i class="flaticon-favorite-heart-button"></i>
-                                                <i class="flaticon-favorite-heart-button"></i>
-                                            </div>
-                                            <h6 class="cont-title">Awesome Movie</h6>
-                                            <p1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat enim non ante egestas vehicula. Suspendisse potenti. Fusce malesuada fringilla lectus venenatis porttitor. </p1>
-                                            <div class="review-meta">
-                                                <a href="#0">
-                                                    <i class="flaticon-hand"></i><span>8</span>
-                                                </a>
-                                                <a href="#0" class="dislike">
-                                                    <i class="flaticon-dont-like-symbol"></i><span>0</span>
-                                                </a>
-                                                    <a href="#0">
-                                                    Report Abuse
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="load-more text-center">
                                         <a href="#0" class="custom-button transparent">load more</a>
                                     </div>
-                        </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -195,9 +199,3 @@
             </div>
         </div>
     </section>
-
-<script>
-    function show(){
-
-    }
-</script>

@@ -74,13 +74,13 @@
                     
                     
                     <li>
-<!--Trạng thái phim-->          <a href="#0">Phim</a>
-                        <ul class="submenu">
+                         <a href="#0">Phim</a>
+                        <ul class="submenu" name="status">
                             <li>
-                                <a href="about.html">Phim đang chiếu</a>
+                                <a href="" >Phim đang chiếu</a>
                             </li>
                             <li>
-                                <a href="apps-download.html">Phim sắp ra mắt</a>
+                                <a href="">Phim sắp ra mắt</a>
                             </li>
                         </ul>
                     </li>
@@ -94,17 +94,35 @@
                     <li>
                         <a href="contact.html">Liên hệ</a>
                     </li>
-                    <?php if (!$_SESSION) { ?>
+
+                    <?php
+                            if(isset($_SESSION['user'])){
+                                extract($_SESSION['user']);
+                    ?>
+                        <ul class="menu">
+                            <li>
+                                <a href=""><i class="far fa-user"></i> Hello <?php echo $user?></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="index.php?act=tttk">Thông tin tài khoản</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?act=update_tk">Cập nhật tài khoản</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?act=dangxuat">Đăng xuất</a>
+                                    </li>
+                            
+                                </ul>
+                            </li>
+                        </ul>
+                    <?php }else { ?>
                         <li class="header-button pr-0">
-                            <a href="?act=dangnhap">Đăng nhập</a>
+                            <a href="index.php?act=dangnhap">Đăng nhập</a>
                         </li>
-                    <?php } else { ?> 
-                                  
-                    <div style=" margin-left:100px">
-                    <i class="far fa-user">  </i>
-                        Hello <?php echo $_SESSION['user']?>
-                        <a style=" margin-left:9px" href="index.php?act=dangxuat">Đăng xuất</a></div>
-                    <?php } ?>
+                    <?php
+                    }
+                    ?>
                         
                 </ul>
                 <div class="header-bar d-lg-none">
