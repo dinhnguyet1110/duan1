@@ -26,10 +26,12 @@
                             <tr>
                                 <th></th>
                                 <th>Mã giờ</th>
-                                <th>Giờ chiếu</th>
-                                <th>ID lịch chiếu</th>
-                                <th>ID phòng</th>
+                                <th>Giờ chiếu</th>         
+                                <th>Ngày chiếu</th>
+                                <th>Phòng chiếu</th>
                                 <th>Thao tác</th>
+                                <th style="display: none;">ID lịch chiếu</th>
+                                <th style="display: none;">ID phòng</th>
                             </tr>
                             <?php
                                 foreach($listkhunggio as $khunggio){
@@ -40,16 +42,19 @@
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td>'.$id.'</td>
                                         <td>'.$gio_chieu.'</td>
-                                        <td>'.$id_lichchieu.'</td>
-                                        <td>'.$id_phong.'</td>
+                                        <td>'.$ngay_chieu.'</td>
+                                        <td>'.$ten_phong.'</td>
                                         <td><a href="'.$suakg.'"><input type="button" class="btn btn-cyan btn-sm" value="Sửa"></a>
                                         <a onclick="'."return confirm('Bạn có muốn xóa?')".'" href="'.$xoakg.'"><input type="button" value="Xóa" class="btn btn-danger btn-sm"></a></td>
+                                        <td  style="display: none;">'.$id_lichchieu.'</td>
+                                        <td style="display: none;">'.$id_phong.'</td>
                                     </tr>
                                     ';
                                 }
                             ?>
                             </table>
                         </div>
+
                         
                     </div>
                         

@@ -28,10 +28,11 @@
                                 <th></th>
                                 <th>ID lịch chiếu</th>
                                 <th>Ngày chiếu</th>
-                                <th>ID phim</th>
+                                <th> Phim</th>                          
                                 <th>Trạng thái</th>
                                 <th>Khung giờ</th>
                                 <th>Thao tác</th>
+                                <th style=" display: none;">ID phim</th>
                             </tr>                                                             
                             <?php
                                 foreach($listlichchieu as $lichchieu){
@@ -43,11 +44,12 @@
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td>'.$id.'</td>
                                         <td>'.$ngay_chieu.'</td>
-                                        <td>'.$idphim.'</td>
+                                        <td>'.$name.'</td>                   
                                         <td>'.$trang_thai.'</td>
                                         <td><a href="'.$tao_gio.'"><input type="button" class="btn btn-cyan btn-sm" value="Tạo giờ chiếu" ></a></td>
                                         <td><a href="'.$sualich.'"><input type="button" class="btn btn-cyan btn-sm" value="Sửa" ></a>
                                         <a onclick="'."return confirm('Bạn có muốn xóa?')".'" href="'.$xoalich.'"><input type="button" value="Xóa" class="btn btn-danger btn-sm"></a></td>
+                                        <td style="display: none;">'.$idphim.'</td>
                                     </tr>
                                     ';
                                 }

@@ -74,7 +74,7 @@
                             foreach($ngay as $day){
                                 extract($day);
                                 echo ' 
-                                <a class="ml-20 box" href="'.$link.''.$id.' "> '.$ngay_chieu.'</a><br> ';
+                                <a class="ml-20 box" href="'.$link.''.$id.'"> '.$ngay_chieu.'</a><br> ';
                             }
                         ?> 
                     </div>
@@ -86,7 +86,7 @@
                                 $gio=load_gio($id);                          
                                 foreach($gio as $time){
                                 extract($time);
-                                echo '<a class="ml-20 box">'.$gio_chieu.'</a>';
+                                echo '<a class="ml-20 box" href="">'.$gio_chieu.'</a>';
                                 
                                 } 
                             } 
@@ -95,11 +95,8 @@
                             }                                                             
                         ?>
                     </div>
-                  
                 </div>
                 <div class="item date-item">
-                    
-
                     <?php
                         if(isset($_SESSION['user'])&& isset($_GET['idngay'])){
                            
@@ -147,55 +144,25 @@
                                             <h5 class="sub-title"></h5>
                                         </div>
                                     <div>                      
-                                        <?php echo $mota ?>        <!--mô tả--> 
+                                        <?php echo $mota ?>        
                             </div>
                         </div>
                         <div class="tab-item">
-                                    <div class="movie-review-item">
-                                        <div class="author">
-                                            <div class="thumb">
-                                                <a href="#0">
-                                                    <img src="assets/images/cast/cast02.jpg" alt="cast">
-                                                </a>
-                                            </div>
-                                            <div class="movie-review-info">
-                                                <span class="reply-date">13 Days Ago</span>
-                                                <h6 class="subtitle"><a href="#0">minkuk seo</a></h6>
-                                                <span><i class="fas fa-check"></i> verified review</span>
-                                            </div>
-                                        </div>
-                                        <div class="movie-review-content">
-                                            <div class="review">
-                                                <i class="flaticon-favorite-heart-button"></i>
-                                                <i class="flaticon-favorite-heart-button"></i>
-                                                <i class="flaticon-favorite-heart-button"></i>
-                                                <i class="flaticon-favorite-heart-button"></i>
-                                                <i class="flaticon-favorite-heart-button"></i>
-                                            </div>
-                                            <h6 class="cont-title">Awesome Movie</h6>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat enim non ante egestas vehicula. Suspendisse potenti. Fusce malesuada fringilla lectus venenatis porttitor. </p>
-                                            <div class="review-meta">
-                                                <a href="#0">
-                                                    <i class="flaticon-hand"></i><span>8</span>
-                                                </a>
-                                                    <a href="#0" class="dislike">
-                                                    <i class="flaticon-dont-like-symbol"></i><span>0</span>
-                                                </a>
-                                                <a href="#0">
-                                                    Report Abuse
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="load-more text-center">
-                                        <a href="#0" class="custom-button transparent">load more</a>
-                                    </div>
-                            </div>
+                                <div class="movie-review-item">
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+                                <script>
+                                    $(document).ready(function(){
+                                    $("#binhluan").load("view/binhluan/binhluanform.php", {idphim: <?=$_GET['id']?>});
+                                    });
+                                </script>
+                                <div class="row" id="binhluan"></div>  
+                                </div>
+                                                                      
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>

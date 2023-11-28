@@ -87,7 +87,9 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_lichchieu" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Lịch chiếu</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_khunggio" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Khung giờ chiếu</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_phongchieu" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Phòng chiếu phim</span></a></li>               
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_taikhoan" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Tài khoản</span></a></li>               
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_taikhoan" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Tài khoản</span></a></li>        
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_binhluan" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Bình luận</span></a></li>  
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=list_bongnuoc" aria-expanded="false"><i class="fas fa-genderless"></i><span class="hide-menu">Bỏng nước</span></a></li>                                          
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

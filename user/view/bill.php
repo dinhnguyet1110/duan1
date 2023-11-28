@@ -47,6 +47,9 @@
                            
                             </li>
                         </ul>
+                        <!-- <div class="div">
+                            <input type="text" type="radio" name="payment" value="VNPay">
+                        </div> -->
                         <h6 class="subtitle">Nhập chi tiết thẻ của bạn</h6>
                         <form class="payment-card-form">
                             <div class="form-group w-100">

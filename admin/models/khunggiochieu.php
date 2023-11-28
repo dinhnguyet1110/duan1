@@ -10,7 +10,10 @@
         }
 
         function loadall_khunggio(){
-            $sql="SELECT * FROM khung_gio_chieu order by id desc";
+            $sql="SELECT khung_gio_chieu.*,ngay_chieu,phong_chieu.ten_phong FROM khung_gio_chieu
+             join lich_chieu on khung_gio_chieu.id_lichchieu=lich_chieu.id 
+             join phong_chieu on khung_gio_chieu.id_phong=phong_chieu.id
+             order by id desc";
             $listkhunggio = pdo_query($sql);
             return $listkhunggio;
         }

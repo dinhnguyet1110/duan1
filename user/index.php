@@ -24,12 +24,14 @@ include_once "header.php";
                 $gio=load_gio($id);
                 include_once "../user/view/ctphim.php";
                 break;
-
-            case 'phong':
-                $listphong=loadall_phong();
-                $dsphim = loadall_phim('','');
-                include_once "../user/view/ghe.php";
-                break;
+                
+                case 'phong':
+                    $idphim=$_GET['idphim'];
+                    $idphong=$_GET['idphong'];
+                    $ve=ve($idphim,$idphong);                     
+                    include_once "../user/view/ghe.php";
+                    break;
+    
             case 've':             
                 include_once "../user/view/ve.php";
                 break; 
@@ -102,7 +104,7 @@ include_once "header.php";
                     $id=$_POST['id'];
                     $role=$_POST['role'];               
                     $_SESSION['user']=dangnhap($user,$pass);
-                    $thongbao="alert('Cập nhật thành công')";
+                    // $thongbao="alert('Cập nhật thành công')";
                     // header('Location: index.php?act=update_tk');                        
                 }
                 include "view/tai_khoan/thongtin_tk.php";

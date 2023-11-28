@@ -7,7 +7,8 @@
     include "../admin/models/lichchieu.php";
     include "../admin/models/taikhoan.php";
     include "../admin/models/phong.php";
-
+    include "../admin/models/bongnuoc.php";
+    include "../admin/models/binhluan.php";
     if(isset($_GET['act'])){
         $act=$_GET['act'];
         switch($act){
@@ -311,7 +312,25 @@
                 }  
                 $listphong = loadall_phong();
                 include "../admin/phong_chieu/list.php";
-                
+
+            case 'list_binhluan': 
+
+                    $listbinhluan = loadall_binhluan(0);
+                    include "../admin/binhluan/list.php";
+                    break;
+
+            case 'xoabl':
+                    if(isset($_GET['id'])&&($_GET['id']>0)){
+                        delete_binhluan($_GET['id']);
+                    }
+                    $listbinhluan = loadall_binhluan(0);
+                    include "../admin/binhluan/list.php";
+                    break;   
+                    
+                case 'list_bongnuoc':
+                    $listbongnuoc = loadall_bongnuoc();
+                    include "../admin/bong_nuoc/list.php";
+                    break;
             default:
             include '../admin/view/layout/home.php';
                 break;

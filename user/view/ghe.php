@@ -96,6 +96,14 @@ $soDoGhe = [
             border: 2px solid #ff0000;
         }
 
+        .seat.trong {
+            background-color: white;
+            color: #fff;
+        }
+        .seat.chon {
+            background-color: red;
+            color: #fff;
+        }
         input[type="submit"] {
             margin-top: 20px;
             padding: 20px 50px;
@@ -175,7 +183,16 @@ $soDoGhe = [
                             }
                         ?>
                     </div>
-                    
+                    <div class="seat-container ml-40">
+                        <div class="seat trong"></div>
+                        <div class="seat occupied"></div>
+                        <div class="seat chon"></div>
+                    </div>
+                    <div class="seat-container ml-30">
+                        <div class="">Ghế Trống</div>
+                        <div class="">Ghế Đã Đặt</div>
+                        <div class="">Ghế Đang chọn</div>
+                    </div>
                     <br>
             <div class="movie-facility padding-bottom padding-top">
                 <form action="" method="post">
@@ -183,27 +200,20 @@ $soDoGhe = [
                         <div class="col-lg-10 ">
                             <div class="booking-summery bg-one">
                                 <h4 class="title">Vé</h4>
-                                <ul>
-                                    <li>
-                                        <h6 class="subtitle">Tên phim<span>Bóng đè</span></h6>
-                                        <h6 class="subtitle">Ngày chiếu</span></span></h6>
-                                        <h6 class="subtitle">Giờ chiếu</span></span></h6>
-                                        <h6 class="subtitle">Phòng chiếu</span></span></h6>
-                                        <h6 class="subtitle">Ngày đặt vé</span></span></h6>
-                                    </li>
-                                    <li>
-                                        <!-- <h6 class="subtitle"><span>Số vé</span><span>01</span></h6> -->
-                                        <h5 id="selected-seats"><span>Vị trí ghế</span><span></span></h5>
-                                
-                                    </li>
-                                    <li>
-                                    <!-- <div id="selected-seats"></div> -->
-                                    <div id="total-price">Tổng tiền: 0 VNĐ</div>
-                                    </li>
-                                </ul>
-                                <ul>
-                            
-                                </ul>
+                                <form action="" method="post">
+                                    <?php foreach ($ve as $vee) ?>
+                                        <?php extract($vee) ?>
+                                        <input type="text" value="<?=$name?> ">
+                                        <input type="text" value="<?=$ngay_chieu?>">
+                                        <input type="text" value="<?=$gio_chieu?>">
+                                        <input type="text" value="<?=$ten_phong?>">
+                                        <input type="text" value="<?php 
+                                        date_default_timezone_set('Asia/Ho_Chi_Minh');
+                                        echo  date('H:i / d-m-Y');?>">
+                                        <input type="text" id="selected-seats" value="">
+                                        <input type="text" id="total-price" value="">
+                       
+                                </form>
                             </div>
                         
                         </div>
@@ -212,46 +222,48 @@ $soDoGhe = [
             </div>
     </div>
                     <a href="index.php?act=datve"><input type="submit" value="Đặt vé"></a>
-                    
-                <!-- </form> -->
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                    var seats = document.querySelectorAll('.seat');
-                    var selectedSeats = [];
-                    var totalPriceElement = document.getElementById('total-price');
-                    var selectedSeatsElement = document.getElementById('selected-seats');
+                        
+                    <!-- </form> -->
 
-                    seats.forEach(function(seat) {
-                        seat.addEventListener('click', function() {
-                            if (!seat.classList.contains('occupied')) {
-                                seat.classList.toggle('selected');
-                                updateSelectedSeats();
-                                updateTotalPrice();
-                            }
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                        var seats = document.querySelectorAll('.seat');
+                        var totalPriceElement = document.getElementById('total-price');
+                        var selectedSeatsElement = document.getElementById('selected-seats');
+
+                        seats.forEach(function(seat) {
+                            seat.addEventListener('click', function() {
+                                if (!seat.classList.contains('occupied')) {
+                                    seat.classList.toggle('selected');
+                                    updateSelectedSeats();
+                                    updateTotalPrice();
+                                }
+                            });
                         });
-                    });
 
-                    function updateSelectedSeats() {
-                        selectedSeats = Array.from(document.querySelectorAll('.seat.selected'));
-                        updateSelectedSeatsElement();
-                    }
+                        function updateSelectedSeats() {
+                            var selectedSeats = Array.from(document.querySelectorAll('.seat.selected'));
+                            updateSelectedSeatsElement(selectedSeats);
+                        }
 
-                    function updateSelectedSeatsElement() {
-                        selectedSeatsElement.innerHTML = 'Vị trí ghế đã chọn: ';
+                        function updateSelectedSeatsElement(selectedSeats) {
                         var seatNames = selectedSeats.map(function(selectedSeat) {
                             return selectedSeat.getAttribute('data-seat');
                         });
-                        selectedSeatsElement.innerHTML += seatNames.join(', ');
+                        selectedSeatsElement.innerHTML = 'Vị trí ghế đã chọn: ' + seatNames.join(', ');
+
+                        // Hiển thị giá trị ghế trong input
+                        document.getElementById('selected-seats').value = seatNames.join(', ');
                     }
 
-                    function updateTotalPrice() {
-                        var totalPrice = 0;
-                        selectedSeats.forEach(function(selectedSeat) {
-                            totalPrice += parseFloat(selectedSeat.getAttribute('data-price'));
-                        });
-                        totalPriceElement.textContent = 'Tổng tiền: ' + totalPrice.toLocaleString('vi-VN') + ' VNĐ';
-                    }
+                        function updateTotalPrice() {
+                            var totalPrice = Array.from(document.querySelectorAll('.seat.selected')).reduce(function(sum, selectedSeat) {
+                                return sum + parseFloat(selectedSeat.getAttribute('data-price'));
+                            }, 0);
+                            totalPriceElement.value = totalPrice.toLocaleString('vi-VN');
+                        }
                     });
+
                 </script>
                     
             </div>
@@ -260,10 +272,16 @@ $soDoGhe = [
         </div>
     </div>
     <style>
- .mt-50{
-    margin-top:50px;
- }
-</style>
-
+    .mt-50{
+        margin-top:50px;
+    }
+    .ml-30{
+        margin-left:300px;
+    }
+    .ml-40{
+        margin-left:330px;
+    }
+    </style>
+    
 </body>
 </html>
