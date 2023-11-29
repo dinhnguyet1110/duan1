@@ -74,15 +74,15 @@
                     
                     
                     <li>
-                         <a href="#0">Phim</a>
-                        <ul class="submenu" name="status">
+                         <a href="../user/index.php">Phim</a>
+                        <!-- <ul class="submenu" name="status">
                             <li>
                                 <a href="" >Phim đang chiếu</a>
                             </li>
                             <li>
                                 <a href="">Phim sắp ra mắt</a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <li>
                         <a href="#0">Page</a>
@@ -108,6 +108,9 @@
                                     </li>
                                     <li>
                                         <a href="index.php?act=update_tk">Cập nhật tài khoản</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?act=lichsu_ve">Lịch sử đặt vé</a>
                                     </li>
                                     <li>
                                         <a href="index.php?act=dangxuat">Đăng xuất</a>

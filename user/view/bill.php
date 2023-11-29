@@ -1,106 +1,116 @@
-<div class="movie-facility padding-bottom padding-top">
+<style>
+        .mb{
+            margin-bottom:30px;
+        }
+    </style>
+    <div class="movie-facility padding-bottom padding-top">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <!-- <div class="checkout-widget d-flex flex-wrap align-items-center justify-cotent-between">
-                        <div class="title-area">
-                            <h5 class="title">Bạn đã là thành viên của NTN CINEMA chưa?</h5>
-                            <p>Hãy đăng nhập để đặt vé dễ dàng hơn!</p>
-                        </div>
-                        <a href="#0" class="sign-in-area">
-                            <i class="fas fa-user"></i><a href="index.php?act=dangnhap">Đăng nhập</a>
-                        </a>
-                    </div> -->
                     <div class="checkout-widget checkout-contact">
                         <h5 class="title">Thông tin liên hệ </h5>
                         <form class="checkout-contact-form">
                             <div class="form-group">
-                                <input type="text" placeholder="Họ tên của bạn">
+                                <input type="text" placeholder="Họ tên của bạn" value="Người dùng:<?php echo " "?><?=$_SESSION['user']['user']?>">
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Email của bạn">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Số điện thoại của bạn">
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Continue" class="custom-button">
+                                <input type="text" placeholder="Email của bạn" value="Email:<?php echo " "?><?=$_SESSION['user']['email']?>">
                             </div>
                         </form>
                     </div>
                    
                     <div class="checkout-widget checkout-card mb-0">
-                        <h5 class="title">Phương thức thanh toán </h5>
-                        <ul class="payment-option">
-                            <li class="active">
-                                <a href="#0">
-                                    <img src="assets/images/payment/card.png" alt="payment">
-                                    <span>Credit Card</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#0">
-                                    <img src="assets/images/payment/card.png" alt="payment">
-                                    <span>Debit Card</span>
-                                </a>
-                            </li>
-                           
-                            </li>
-                        </ul>
-                        <!-- <div class="div">
-                            <input type="text" type="radio" name="payment" value="VNPay">
-                        </div> -->
-                        <h6 class="subtitle">Nhập chi tiết thẻ của bạn</h6>
-                        <form class="payment-card-form">
-                            <div class="form-group w-100">
-                                <label for="card1">Số thẻ/ số tài khoản</label>
-                                <input type="text" id="card1">
-                                <div class="right-icon">
-                                    <i class="flaticon-lock"></i>
-                                </div>
-                            </div>
-                            <div class="form-group w-100">
-                                <label for="card2">Họ tên </label>
-                                <input type="text" id="card2">
-                            </div>
-                         
-                            <div class="form-group">
-                                <input type="submit" class="custom-button" value="Thanh toán">
-                            </div>
-                        </form>
-                        <p class="notice">
-                            Bằng cách nhấp vào Thanh toán, bạn đồng ý với <a href="#0">các điều khoản và điều kiện</a>
-                        </p>
+                        <h5 class="title mb">Combo bỏng nước</h5>
+                        <div class="tab row">  
+                            <?php foreach($listbongnuoc as $bongnuoc) : ?>
+                            <?php extract($bongnuoc) ?>                         
+                                        <div class="item">                          
+                                            <div class="movie-grid">                                                              
+                                                <div class="movie-thumb c-thumb">
+                                                    <a href="<?php echo $id ?>">
+                                                    <img src="../admin/upload/<?php echo $hinh_anh ?>" alt="movie" >
+                                                    </a>
+                                                </div>
+                                                <div class="movie-content bg-one">
+                                                    <h5 class="title">                                      
+                                                    <a href=""><?php echo $ten_combo ?></a>                                           
+                                                    </h5>                                                       
+                                                </div> 
+                                                <div class="movie-content bg-one">
+                                                    <h5 class="title">                                      
+                                                        <?php echo $gia ?>                                        
+                                                    </h5>                                                       
+                                                </div>      
+                                                <a class="custom-button" href="index.php?act=datve&idcombo=<?=$id?>">Chọn</a>
+</div>                             
+                                        </div>                         
+                            <?php endforeach ?>
+                        </div>
                     </div>
                 </div>
+                <?php 
+               
+                if(isset($_GET['idcombo'])){
+                    $sql="select * from bong_nuoc where id=".$_GET['idcombo'];
+                    $combo=pdo_query_one($sql);                 
+                    $giaa=$combo['gia'];     
+                    $tenn=$combo['ten_combo'];
+                    $anh=$combo['hinh_anh'];
+                }else{
+                    $giaa=0;
+                    $tenn="Chưa chọn";
+                    $anh="";
+
+                }
+                $sql="select ve.* from ve join taikhoan where taikhoan.id=".$_SESSION['user']['id']." order by ve.id desc limit 1";
+                $bill=pdo_query($sql);
+                foreach($bill as $ve){}
+                extract($ve);
+                
+
+                ?>
                 <div class="col-lg-4">
-                    <div class="booking-summery bg-one">
-                        <h4 class="title">Chi tiết đặt vé</h4>
-                        <ul>
-                            <li>
-                                <h6 class="subtitle">Tên phim<span>ABC</span></h6>
-                                <span class="info">Thể loại</span>
-                            </li>
-                            <li>
-                                <h6 class="subtitle"><span>Số vé</span><span>02</span></h6>
-                                <div class="info"><span>Ngày đặt</span></div>
-                            </li>
-                            <li>
-                                <h6 class="subtitle mb-0"><span>Tổng giá vé</span><span>$150</span></h6>
-                            </li>
-                        </ul>
-                      
-                        <ul>
-                            <li>
-                                <span class="subtitle"><span>Tổng tiền</span><span>$207</span></span>
-                               
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="proceed-area  text-center">
-                        <h6 class="subtitle"><span>Số tiền phải thanh toán </span><span>$222</span></h6>
-                        <a href="#0" class="custom-button back-button">Tiếp tục</a>
-                    </div>
+                <div class="booking-summery bg-one">
+                                <h4 class="title">Vé</h4>
+                                <form action="index.php?act=uplai" method="post">
+                                        <div class="ngang">
+                                           <input name="id" type="hidden" value="<?= $id?>">
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Tên phim:</span><input  type="text" value="<?= $ten_phim?>" readonly>
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Ngày chiếu:</span><input type="text" value="<?= $ngaychieu?>" readonly>
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Giờ chiếu:</span><input type="text"value="<?= $gio?>" readonly>
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Phòng chiếu:</span><input type="text"value="<?= $phong?>" readonly>
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Giờ đặt/Ngày đặt:</span><input type="text"value="<?= $ngay_dat?>" readonly>
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Vị trí ghế:</span><input type="text" value="<?= $ghe?>" readonly>
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Giá vé:</span><input type="text"value="<?= $gia?>" readonly>
+                                        </div>  
+                                        <div class="ngang">
+                                            <span>Bỏng+Nước</span><input type="text" name="combo"  value="<?php echo $tenn ?>" readonly>
+                                        </div>                                        
+                                        <div class="ngang">
+                                            <span>Giá bỏng nước:</span><input type="text" name="gia"value=" <?php echo $giaa ?>" readonly>
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Tổng tiền:</span><input type="text" name="tongtien"value=" <?php echo $giaa + $gia  ?>" readonly>
+                                        </div>
+                                        <a href="?act=uplai" > <input style="border:none;margin-top:10px;border-radius: 25px;padding: 11px 24px;font-weight: 600;color: #ffffff;text-transform: uppercase;background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);" type="submit"name="thanhtoan" value="Thanh toán"></a>
+                                        <a href="http://localhost/DUAN1_MOVIE/vnpay_php/" >VN Pay</a>
+                                
+                            </div>
+                            
                 </div>
             </div>
         </div>

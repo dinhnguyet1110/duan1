@@ -8,6 +8,7 @@ include_once "../admin/models/lichchieu.php";
 include_once "../admin/models/khunggiochieu.php";
 include_once "../admin/models/taikhoan.php";
 include_once "../admin/models/phong.php";
+
 $listtheloai=loadall_theloai();
 $listphim=loadall_phim_home();
 
@@ -25,19 +26,49 @@ include_once "header.php";
                 include_once "../user/view/ctphim.php";
                 break;
                 
-                case 'phong':
-                    $idphim=$_GET['idphim'];
-                    $idphong=$_GET['idphong'];
-                    $ve=ve($idphim,$idphong);                     
-                    include_once "../user/view/ghe.php";
-                    break;
+            case 'phong':
+                $idphim=$_GET['idphim'];
+                $idphong=$_GET['idphong'];
+                $ve=ve($idphim,$idphong);                     
+                include_once "../user/view/ghe.php";
+                break;
     
-            case 've':             
-                include_once "../user/view/ve.php";
-                break; 
-            case 'datve':             
-                include_once "../user/view/bill.php";
-                break;      
+                case 've':
+                    $ve=ve($idphim,$idphong);
+                    var_dump($ve);
+                    include_once "../user/view/ve.php";
+                    break; 
+                case 'datve': 
+                     if(isset($_POST['tieptuc'])){
+                        $tenphim=$_POST['tenphim'];
+                        $ngaychieu=$_POST['ngaychieu'];
+                        $giochieu=$_POST['giochieu'];
+                        $tenphong=$_POST['tenphong'];
+                        $ngaydatve=$_POST['ngaydatve'];
+                        $ghe=$_POST['ghe'];
+                        $tongtien=$_POST['tongtien'];
+                        $user=$_SESSION['user']['user'];                  
+                        insert_ve( $tenphim,$ngaychieu, $giochieu,$tenphong, $ngaydatve,$ghe,$tongtien,$user);               
+                    }             
+                    $listbongnuoc=loadall_bongnuoc();              
+                    include_once "../user/view/bill.php";
+
+                    break;
+
+                    case'uplai':
+                        $ten=$_POST['combo'];
+                        $gia=$_POST['gia'];
+                        $tongtien=$_POST['tongtien'];
+                        $id=$_POST['id'];
+                        update_ve($ten,$gia,$tongtien,$id);
+                        
+                        include_once "home.php";   
+                        break;
+                       
+                case 'lichsu_ve':
+                  $loadbill=loadall_bill();
+                    include_once "../user/view/lichsu_ve.php";
+                    break;
             case 'phim':
                 if(isset($_GET['idtl'])&&($_GET['idtl']>0)){
                     $idtl=$_GET['idtl'];

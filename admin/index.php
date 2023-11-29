@@ -7,7 +7,6 @@
     include "../admin/models/lichchieu.php";
     include "../admin/models/taikhoan.php";
     include "../admin/models/phong.php";
-    include "../admin/models/bongnuoc.php";
     include "../admin/models/binhluan.php";
     if(isset($_GET['act'])){
         $act=$_GET['act'];
@@ -331,6 +330,11 @@
                     $listbongnuoc = loadall_bongnuoc();
                     include "../admin/bong_nuoc/list.php";
                     break;
+
+                    case 'list_ve':
+                        $ve = load_bill();      
+                        include "../admin/ve/list.php";
+                        break;
             default:
             include '../admin/view/layout/home.php';
                 break;

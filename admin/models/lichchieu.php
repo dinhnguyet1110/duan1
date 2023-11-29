@@ -38,6 +38,12 @@
             return $gio;
         }
 
+        function loadall_bongnuoc(){
+            $sql="SELECT * FROM bong_nuoc order by id asc";
+            $listbongnuoc = pdo_query($sql);
+            return $listbongnuoc;
+        }   
+
         function ve($idphim,$idphong){
             $sql="SELECT lich_chieu.ngay_chieu,phim.name,khung_gio_chieu.gio_chieu,phong_chieu.ten_phong from khung_gio_chieu
             join lich_chieu on khung_gio_chieu.id_lichchieu=lich_chieu.id
@@ -46,5 +52,29 @@
             return pdo_query($sql);
 
         }
+        
+        function insert_ve($tenphim,$ngaychieu, $giochieu,$tenphong, $ngaydatve,$ghe,$tongtien,$user){
+            $sql = "INSERT INTO ve(user,ghe,ten_phim,ngay_dat,phong,gia,gio,ngaychieu) values('$user','$ghe','$tenphim','$ngaydatve','$tenphong','$tongtien','$giochieu','$ngaychieu')";
+            pdo_execute($sql);
+        }
+  
+        function update_ve($ten,$gia,$tongtien,$id){
+            $sql = "UPDATE ve set combo='".$ten."', giacombo='".$gia."', tongtien='".$tongtien."'  where id=".$id;
+            pdo_execute($sql);
+        }
+
+        function loadall_bill(){
+            $sql = "select ve.* from ve join taikhoan where taikhoan.id=".$_SESSION['user']['id']." order by ve.id desc limit 1";
+           $bill=pdo_query($sql);
+           return $bill;
+        }
+
+        function load_bill(){
+            $sql = "select * from ve order by id desc";
+            $ve=pdo_query($sql);
+           return $ve;
+        }
+
+    
 
 ?>

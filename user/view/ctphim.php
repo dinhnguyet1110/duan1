@@ -35,86 +35,130 @@
     <!-- ==========Banner-Section========== -->
 
     <!-- ==========Book-Section========== -->
-    <section class="page-title bg-one">
-        <div class="container">
-            <div class="page-title-area">
-                <div class="item md-order-1">
-                    <a href="#" class="custom-button back-button">
-                        <i class="flaticon-double-right-arrows-angles"></i>
-                    </a>
-                </div>
-                                                  
-                <style>
-                    .ml-20{
-                        margin-left:20px;
-                        float: left;
-                    }
-                    .ml-30{
-                        margin-left:33px;
-                        
-                    }
-                    .box{
-                        width: 90px;
-                        height:30px;
-                        background:#3366FF;
-                        color:Silver;
-                        border: 1px solid black;
-                        text-align:center;
-                        border-radius:3px;
-                    }
-                    .mb-30{
-                        margin-bottom:30px;
-                    }
-                </style>   
-                <div class="top-side">
-                    <div class="tab-item date-item mb-30">
-                        <h6>Ngày chiếu: </h6>
-                        <?php
-                            $link='index.php?act=ctphim&id='.$_GET['id'].'&idngay=';
-                            foreach($ngay as $day){
-                                extract($day);
-                                echo ' 
-                                <a class="ml-20 box" href="'.$link.''.$id.'"> '.$ngay_chieu.'</a><br> ';
-                            }
-                        ?> 
-                    </div>
-                    <div class="tab-item date-item">
-                        <h6>Giờ chiếu: </h6>
-                        <?php
-                            if(isset($_GET['idngay'])  ){
-                                $id= $_GET['idngay'];                 
-                                $gio=load_gio($id);                          
-                                foreach($gio as $time){
-                                extract($time);
-                                echo '<a class="ml-20 box" href="">'.$gio_chieu.'</a>';
-                                
-                                } 
-                            } 
-                            else{
-                                $id_phong="";
-                            }                                                             
-                        ?>
-                    </div>
-                </div>
-                <div class="item date-item">
-                    <?php
-                        if(isset($_SESSION['user'])&& isset($_GET['idngay'])){
-                           
-                            echo '<a class="custom-button" href="index.php?act=phong&idphong='.$id_phong.'&idphim='.$_GET['id'].'">Đặt vé</a>';
+    <style>
+        .ml-20 {
+            margin-left: 20px;
+            float: left;
+        }
 
-                        }else{
-                            echo '<a class="custom-button" href="index.php?act=dangnhap">Đặt vé</a>';
-                        }
-                    ?>
+        .ml-30 {
+            margin-left: 33px;
+        }
 
-                </div>
-            
+        .box {
+            width: 90px;
+            height: 30px;
+            background: #3366FF;
+            color: Silver;
+            border: 1px solid black;
+            text-align: center;
+            border-radius: 3px;
+        }
+
+        .box.selected-date {
+            background-color: red;
+            color: white;
+        }
+
+        .mb-30 {
+            margin-bottom: 30px;
+        }
+        .box1 {
+            width: 90px;
+            height: 30px;
+            background: red;
+            color: Silver;
+            border: 1px solid black;
+            text-align: center;
+            border-radius: 3px;
+        }
+    </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var boxes = document.querySelectorAll('.box');
+
+        boxes.forEach(function (box) {
+            box.addEventListener('click', function () {
+                // Xóa tất cả lớp 'selected-date' trước khi thêm vào ngày mới
+                boxes.forEach(function (otherBox) {
+                    otherBox.classList.remove('selected-date');
+                });
+
+                // Thêm lớp 'selected-date' cho ngày được chọn
+                this.classList.add('selected-date');
+
+                // Lưu ID của ngày được chọn vào sessionStorage
+                sessionStorage.setItem('selectedDateId', this.id);
+            });
+        });
+
+        // Kiểm tra xem đã có ngày được chọn trước đó hay không
+        var selectedDateId = sessionStorage.getItem('selectedDateId');
+        if (selectedDateId) {
+            // Thêm lớp 'selected-date' cho ngày được chọn trước đó
+            var selectedDate = document.getElementById(selectedDateId);
+            if (selectedDate) {
+                selectedDate.classList.add('selected-date');
+            }
+        }
+    });
+</script>
+
+</head>
+<body>
+
+<!-- Các phần khác của trang web -->
+
+<section class="page-title bg-one">
+    <div class="container">
+        <div class="page-title-area">
+            <div class="item md-order-1">
+                <a href="#" class="custom-button back-button">
+                    <i class="flaticon-double-right-arrows-angles"></i>
+                </a>
             </div>
-    </section>
-       
-    <!-- ==========Book-Section========== -->
 
-    <!-- ==========Movie-Section========== -->
+            <div class="top-side">
+                <div class="tab-item date-item mb-30">
+                    <h6>Ngày chiếu: </h6>
+                    <?php
+                    $link = 'index.php?act=ctphim&id=' . $_GET['id'] . '&idngay=';
+                    foreach ($ngay as $day) {
+                        extract($day);
+                        echo '<a class="ml-20 box" id="ngay_' . $id . '" href="' . $link . $id . '">' . $ngay_chieu . '</a><br>';
+                    }
+                    
+                    ?>
+                </div>
+                <div class="tab-item date-item">
+<h6>Giờ chiếu: </h6>
+                    <?php
+                    if (isset($_GET['idngay'])) {
+                        $id = $_GET['idngay'];
+                        $gio = load_gio($id);
+                        foreach ($gio as $time) {
+                            extract($time);
+                            echo '<a class="ml-20 box1" href="">' . $gio_chieu . '</a>';
+                        }
+                    } else {
+                        $id_phong = "";
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="item date-item">
+                <?php
+                if (isset($_SESSION['user']) && isset($_GET['idngay'])) {
+                    echo '<a class="custom-button" href="index.php?act=phong&idphong=' . $id_phong . '&idphim=' . $_GET['id'] . '">Đặt vé</a>';
+                } else {
+                    echo '<a class="custom-button" href="index.php?act=dangnhap">Đặt vé</a>';
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</section>
     <section class="movie-details-section padding-top padding-bottom">
         <div class="container">
             <div class="row justify-content-center flex-wrap-reverse mb--50">

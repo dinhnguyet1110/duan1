@@ -96,6 +96,7 @@ $soDoGhe = [
             border: 2px solid #ff0000;
         }
 
+        
         .seat.trong {
             background-color: white;
             color: #fff;
@@ -129,6 +130,15 @@ $soDoGhe = [
             font-weight: bold;
             color: #ff0000; /* Màu đỏ */
         }    
+        .ngang{
+            display: flex;  flex-wrap: nowrap;
+        }
+        .ngang span{
+            width: 200px;
+            float:left;
+            text-align: center;
+            margin: 15px 10px;
+        }
     </style>
 
 <body class="bg-one">
@@ -195,76 +205,93 @@ $soDoGhe = [
                     </div>
                     <br>
             <div class="movie-facility padding-bottom padding-top">
-                <form action="" method="post">
-                    <div class="container col-lg-6 mt-50">               
-                        <div class="col-lg-10 ">
-                            <div class="booking-summery bg-one">
+                
+                    <div class="container col-lg-7">               
+                        <div class="col-lg-10">
+                        <div class="booking-summery bg-one">
                                 <h4 class="title">Vé</h4>
-                                <form action="" method="post">
-                                    <?php foreach ($ve as $vee) ?>
-                                        <?php extract($vee) ?>
-                                        <input type="text" value="<?=$name?> ">
-                                        <input type="text" value="<?=$ngay_chieu?>">
-                                        <input type="text" value="<?=$gio_chieu?>">
-                                        <input type="text" value="<?=$ten_phong?>">
-                                        <input type="text" value="<?php 
+                                <form action="index.php?act=datve" method="post"> 
+                                <?php foreach ($ve as $vee) {?>
+                                        <?php extract($vee); ?>                                                   
+                                        <div class="ngang">
+                                            <span>Tên phim:</span><input  type="text" name="tenphim" value="<?= $name?>">
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Ngày chiếu:</span><input type="text" name="ngaychieu" value="<?= $ngay_chieu?>">
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Giờ chiếu:</span><input type="text"  name="giochieu" value="<?= $gio_chieu?>">
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Phòng chiếu:</span><input type="text" name="tenphong" value="<?= $ten_phong?>">
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Giờ đặt/Ngày đặt:</span> <input type="text" name="ngaydatve" value="<?php 
                                         date_default_timezone_set('Asia/Ho_Chi_Minh');
                                         echo  date('H:i / d-m-Y');?>">
-                                        <input type="text" id="selected-seats" value="">
-                                        <input type="text" id="total-price" value="">
-                       
-                                </form>
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Vị trí ghế:</span><input type="text"  name="ghe" id="selected-seats" value="Chưa chọn">
+                                        </div>
+                                        <div class="ngang">
+                                            <span>Giá vé:</span><input type="number" name="tongtien" id="total-price" value="0">
+                                        </div>  
+                                        
+                                        <a href="?act=datve"> <input type="submit" name="tieptuc" value="Tiếp tục"></a>
+                                                    
+                                <?php } ?>
+                                </form>                        
                             </div>
                         
                         </div>
                     </div>
-                </form>
+               
             </div>
     </div>
-                    <a href="index.php?act=datve"><input type="submit" value="Đặt vé"></a>
                         
                     <!-- </form> -->
 
                     <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                        var seats = document.querySelectorAll('.seat');
-                        var totalPriceElement = document.getElementById('total-price');
-                        var selectedSeatsElement = document.getElementById('selected-seats');
+                    document.addEventListener("DOMContentLoaded", function() {
+                    var seats = document.querySelectorAll('.seat');
+                    var selectedSeats = [];
+                    var totalPriceElement = document.getElementById('total-price');
+                    var selectedSeatsElement = document.getElementById('selected-seats');
 
-                        seats.forEach(function(seat) {
-                            seat.addEventListener('click', function() {
-                                if (!seat.classList.contains('occupied')) {
-                                    seat.classList.toggle('selected');
-                                    updateSelectedSeats();
-                                    updateTotalPrice();
-                                }
-                            });
+                    seats.forEach(function(seat) {
+                        seat.addEventListener('click', function() {
+                            if (!seat.classList.contains('occupied')) {
+                                seat.classList.toggle('selected');
+                                updateSelectedSeats();
+                                updateTotalPrice();
+                            }
                         });
+                    });
 
-                        function updateSelectedSeats() {
-                            var selectedSeats = Array.from(document.querySelectorAll('.seat.selected'));
-                            updateSelectedSeatsElement(selectedSeats);
-                        }
+                    function updateSelectedSeats() {
+                        selectedSeats = Array.from(document.querySelectorAll('.seat.selected'));
+                        updateSelectedSeatsElement();
+                    }
 
-                        function updateSelectedSeatsElement(selectedSeats) {
+                    function updateSelectedSeatsElement() {
+                        selectedSeatsElement.innerHTML = 'Vị trí ghế đã chọn: ';
                         var seatNames = selectedSeats.map(function(selectedSeat) {
                             return selectedSeat.getAttribute('data-seat');
                         });
-                        selectedSeatsElement.innerHTML = 'Vị trí ghế đã chọn: ' + seatNames.join(', ');
-
-                        // Hiển thị giá trị ghế trong input
-                        document.getElementById('selected-seats').value = seatNames.join(', ');
+                        selectedSeatsElement.innerHTML += seatNames.join(', ');
+                          document.getElementById('selected-seats').value =seatNames.join(', ');
                     }
 
-                        function updateTotalPrice() {
-                            var totalPrice = Array.from(document.querySelectorAll('.seat.selected')).reduce(function(sum, selectedSeat) {
-                                return sum + parseFloat(selectedSeat.getAttribute('data-price'));
-                            }, 0);
-                            totalPriceElement.value = totalPrice.toLocaleString('vi-VN');
-                        }
+                    function updateTotalPrice() {
+                        var totalPrice = 0;
+                        selectedSeats.forEach(function(selectedSeat) {
+                            totalPrice += parseFloat(selectedSeat.getAttribute('data-price'));
+                        });
+                        totalPriceElement.value = + totalPrice ;
+                    }
                     });
-
                 </script>
+                    
                     
             </div>
 

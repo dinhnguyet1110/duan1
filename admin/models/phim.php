@@ -21,17 +21,17 @@
         return $listphim;
     }
 
-    function loadall_phim_tt0($status){
-        $sql="SELECT * FROM phim where status=0";   
-        $phim0 = pdo_query($sql);
-        return $phim1;
-    }
+    // function loadall_phim_tt0($status){
+    //     $sql="SELECT * FROM phim where status=0";   
+    //     $phim0 = pdo_query($sql);
+    //     return $phim1;
+    // }
 
-    function loadall_phim_tt1($status){
-        $sql="SELECT * FROM phim where status=1";   
-        $phim0 = pdo_query($sql);
-        return $phim1;
-    }
+    // function loadall_phim_tt1($status){
+    //     $sql="SELECT * FROM phim where status=1";   
+    //     $phim0 = pdo_query($sql);
+    //     return $phim1;
+    // }
 
     function load_ten_theloai($idtl){
         if($idtl > 0){
