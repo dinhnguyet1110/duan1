@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 09:58 AM
+-- Generation Time: Nov 30, 2023 at 02:37 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,6 @@ CREATE TABLE `binhluan` (
 --
 
 INSERT INTO `binhluan` (`id`, `noidung`, `user`, `idphim`, `ngaybinhluan`) VALUES
-(43, 'phim hay', '0', 12, '04:58:03pm 27/11/2023'),
 (44, 'tuyệt', '10', 12, '05:00:06pm 27/11/2023'),
 (45, 'rhsnj', 'huong', 12, '05:01:49pm 27/11/2023'),
 (46, 'abc', 'huong', 26, '05:07:04pm 27/11/2023');
@@ -65,7 +64,8 @@ CREATE TABLE `bong_nuoc` (
 INSERT INTO `bong_nuoc` (`id`, `ten_combo`, `hinh_anh`, `gia`) VALUES
 (1, 'Combo 1 bỏng + 1 nước', '3.jpg', 99000),
 (2, 'Combo 2 nước + 1 bỏng', '2.jpg', 139000),
-(3, 'Comb 2 bỏng + 2 nước', '1.jpg', 169000);
+(3, 'Combo 2 bỏng + 2 nước', '1.jpg', 169000),
+(4, 'Bỏng', '4.jpg', 49000);
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ CREATE TABLE `ghe` (
   `id` int(11) NOT NULL,
   `ten_ghe` varchar(200) NOT NULL,
   `trang_thai` varchar(200) NOT NULL,
-  `gia` decimal(10,2) DEFAULT NULL
+  `gia` decimal(10,0) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -85,46 +85,46 @@ CREATE TABLE `ghe` (
 --
 
 INSERT INTO `ghe` (`id`, `ten_ghe`, `trang_thai`, `gia`) VALUES
-(1, 'A1', 'trong', 80000.00),
-(2, 'A2', 'trong', 80000.00),
-(3, 'A3', 'trong', 80000.00),
-(4, 'A4', 'trong', 80000.00),
-(5, 'A5', 'trong', 80000.00),
-(6, 'B1', 'trong', 80000.00),
-(7, 'B2', 'trong', 80000.00),
-(8, 'B3', 'trong', 80000.00),
-(9, 'B4', 'trong', 80000.00),
-(10, 'B5', 'trong', 80000.00),
-(11, 'C1', 'trong', 50000.00),
-(12, 'C2', 'trong', 50000.00),
-(13, 'C3', 'trong', 50000.00),
-(14, 'C4', 'trong', 50000.00),
-(15, 'C5', 'trong', 50000.00),
-(16, 'D1', 'trong', 50000.00),
-(17, 'D2', 'trong', 50000.00),
-(18, 'D3', 'trong', 50000.00),
-(19, 'D4', 'trong', 50000.00),
-(20, 'D5', 'trong', 50000.00),
-(21, 'E1', 'trong', 50000.00),
-(22, 'E2', 'trong', 50000.00),
-(23, 'E3', 'trong', 50000.00),
-(24, 'E4', 'trong', 50000.00),
-(25, 'E5', 'trong', 50000.00),
-(26, 'F1', 'trong', 50000.00),
-(27, 'F2', 'trong', 50000.00),
-(28, 'F3', 'trong', 50000.00),
-(29, 'F4', 'trong', 50000.00),
-(30, 'F5', 'trong', 50000.00),
-(31, 'G1', 'trong', 50000.00),
-(32, 'G2', 'trong', 50000.00),
-(33, 'G3', 'trong', 50000.00),
-(34, 'G4', 'trong', 50000.00),
-(35, 'G5', 'trong', 50000.00),
-(36, 'H1', 'trong', 50000.00),
-(37, 'H2', 'trong', 50000.00),
-(38, 'H3', 'trong', 50000.00),
-(39, 'H4', 'trong', 50000.00),
-(40, 'H5', 'trong', 50000.00);
+(1, 'A1', 'trong', 80000),
+(2, 'A2', 'trong', 80000),
+(3, 'A3', 'trong', 80000),
+(4, 'A4', 'seat occupied', 80000),
+(5, 'A5', 'trong', 80000),
+(6, 'B1', 'trong', 80000),
+(7, 'B2', 'trong', 80000),
+(8, 'B3', 'trong', 80000),
+(9, 'B4', 'trong', 80000),
+(10, 'B5', 'trong', 80000),
+(11, 'C1', 'trong', 50000),
+(12, 'C2', 'trong', 50000),
+(13, 'C3', 'trong', 50000),
+(14, 'C4', 'trong', 50000),
+(15, 'C5', 'trong', 50000),
+(16, 'D1', 'trong', 50000),
+(17, 'D2', 'trong', 50000),
+(18, 'D3', 'trong', 50000),
+(19, 'D4', 'trong', 50000),
+(20, 'D5', 'trong', 50000),
+(21, 'E1', 'trong', 50000),
+(22, 'E2', 'trong', 50000),
+(23, 'E3', 'trong', 50000),
+(24, 'E4', 'trong', 50000),
+(25, 'E5', 'trong', 50000),
+(26, 'F1', 'trong', 50000),
+(27, 'F2', 'trong', 50000),
+(28, 'F3', 'trong', 50000),
+(29, 'F4', 'trong', 50000),
+(30, 'F5', 'trong', 50000),
+(31, 'G1', 'trong', 50000),
+(32, 'G2', 'trong', 50000),
+(33, 'G3', 'trong', 50000),
+(34, 'G4', 'trong', 50000),
+(35, 'G5', 'trong', 50000),
+(36, 'H1', 'trong', 50000),
+(37, 'H2', 'trong', 50000),
+(38, 'H3', 'trong', 50000),
+(39, 'H4', 'trong', 50000),
+(40, 'H5', 'trong', 50000);
 
 -- --------------------------------------------------------
 
@@ -161,11 +161,14 @@ INSERT INTO `khung_gio_chieu` (`id`, `gio_chieu`, `id_lichchieu`, `id_phong`) VA
 (16, '23:10:00', 22, 3),
 (17, '19:30:00', 23, 1),
 (18, '18:20:00', 26, 3),
-(20, '12:00:00', 21, 6),
 (21, '20:00:00', 33, 2),
 (22, '19:30:00', 34, 6),
 (23, '18:20:00', 35, 1),
-(29, '12:00:00', 36, 2);
+(29, '12:00:00', 36, 2),
+(31, '20:15:00', 37, 6),
+(32, '13:10:00', 39, 3),
+(33, '21:05:00', 25, 3),
+(34, '17:20:00', 40, 2);
 
 -- --------------------------------------------------------
 
@@ -185,16 +188,16 @@ CREATE TABLE `lich_chieu` (
 --
 
 INSERT INTO `lich_chieu` (`id`, `idphim`, `ngay_chieu`, `trang_thai`) VALUES
-(8, 26, '2023-11-21', 0),
+(8, 8, '2023-12-21', 0),
 (9, 16, '2023-12-25', 1),
-(10, 15, '2023-11-23', 0),
+(10, 10, '2023-12-26', 0),
 (11, 6, '2023-12-14', 1),
-(12, 17, '2023-11-27', 0),
+(12, 12, '2023-12-27', 0),
 (13, 25, '2023-12-22', 1),
 (14, 23, '2023-12-06', 0),
 (15, 24, '2023-12-09', 1),
-(16, 7, '2023-11-29', 1),
-(17, 8, '2023-11-24', 0),
+(16, 16, '2023-12-29', 0),
+(17, 17, '2023-12-24', 0),
 (18, 9, '2023-12-08', 1),
 (19, 10, '2023-12-12', 1),
 (20, 11, '2023-12-09', 0),
@@ -204,7 +207,10 @@ INSERT INTO `lich_chieu` (`id`, `idphim`, `ngay_chieu`, `trang_thai`) VALUES
 (25, 14, '2023-12-14', 0),
 (26, 26, '2023-12-15', 1),
 (34, 34, '2023-12-17', 0),
-(36, 25, '2023-12-18', 0);
+(36, 25, '2023-12-18', 0),
+(38, 38, '2023-12-29', 0),
+(39, 15, '2023-12-29', 0),
+(40, 7, '2023-12-28', 0);
 
 -- --------------------------------------------------------
 
@@ -290,10 +296,28 @@ CREATE TABLE `taikhoan` (
 INSERT INTO `taikhoan` (`id`, `user`, `pass`, `email`, `dia_chi`, `sdt`, `vai_tro`) VALUES
 (1, 'nguyet11', '123456', 'nguyet1110@gmail.com', '75 Hồ Tùng Mậu', '0392839712', 0),
 (2, 'minh', '123456', 'dinhnguyet11102004@gmail.com', '', '0', 1),
-(7, 'admin', '123456', 'dinhnguyet11102004@gmail.com', '', '0', 1),
+(7, 'admin', '123456', 'admin@gmail.com', '', '', 1),
 (10, 'huong', '111111', 'vuhuong@gmail.com', '155 cầu giấy', '0358785784', 0),
-(11, 'n', '123456', 'nguyet@gmail.com', '', '', 1),
-(12, 'nguyet', '123456', 'dinhnguyet11102004@gmail.com', '191 Hoàng Mai', '0398535275', 0);
+(12, 'nguyet', '123456', 'dinhnguyet11102004@gmail.com', '191 Hoàng Mai', '0398535275', 0),
+(13, 'admin2', '123456', 'admin2@gmail.com', '', '', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_vnpay`
+--
+
+CREATE TABLE `tbl_vnpay` (
+  `id` int(11) NOT NULL,
+  `vnp_Amount` varchar(50) NOT NULL,
+  `vnp_BankCode` varchar(50) NOT NULL,
+  `vnp_BankTranNo` varchar(50) NOT NULL,
+  `vnp_CardType` varchar(50) NOT NULL,
+  `vnp_OrderInfo` varchar(50) NOT NULL,
+  `vnp_PayDate` int(11) NOT NULL,
+  `vnp_TmnCode` int(11) NOT NULL,
+  `vnp_TransactionNo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -324,12 +348,27 @@ INSERT INTO `the_loai` (`id`, `nametl`) VALUES
 
 CREATE TABLE `ve` (
   `id` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
+  `user` varchar(255) NOT NULL,
   `ghe` varchar(255) NOT NULL,
   `ten_phim` varchar(255) NOT NULL,
-  `gia` double NOT NULL,
-  `ngay_mua_ve` date NOT NULL
+  `ngay_dat` varchar(255) NOT NULL,
+  `phong` varchar(255) NOT NULL,
+  `gia` decimal(10,0) NOT NULL,
+  `gio` varchar(255) NOT NULL,
+  `ngaychieu` varchar(255) NOT NULL,
+  `combo` varchar(255) NOT NULL,
+  `giacombo` int(20) NOT NULL,
+  `tongtien` int(20) NOT NULL,
+  `thanhtoan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ve`
+--
+
+INSERT INTO `ve` (`id`, `user`, `ghe`, `ten_phim`, `ngay_dat`, `phong`, `gia`, `gio`, `ngaychieu`, `combo`, `giacombo`, `tongtien`, `thanhtoan`) VALUES
+(47, 'huong', 'D3, E3', 'Nhà bà nữ', '15:26 / 30-11-2023', 'Phòng 2', 100000, '22:20:00', '2023-12-12', 'Bỏng', 49000, 149000, 'Đã thanh toán'),
+(48, 'nguyet11', 'B3, C2', 'Tiếng vọng từ địa ngục', '15:44 / 30-11-2023', 'Phòng 4', 130000, '21:40:00', '2023-12-09', 'Bỏng', 49000, 179000, 'Đã thanh toán');
 
 --
 -- Indexes for dumped tables
@@ -384,6 +423,12 @@ ALTER TABLE `taikhoan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_vnpay`
+--
+ALTER TABLE `tbl_vnpay`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `the_loai`
 --
 ALTER TABLE `the_loai`
@@ -409,7 +454,7 @@ ALTER TABLE `binhluan`
 -- AUTO_INCREMENT for table `bong_nuoc`
 --
 ALTER TABLE `bong_nuoc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ghe`
@@ -421,13 +466,13 @@ ALTER TABLE `ghe`
 -- AUTO_INCREMENT for table `khung_gio_chieu`
 --
 ALTER TABLE `khung_gio_chieu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `lich_chieu`
 --
 ALTER TABLE `lich_chieu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `phim`
@@ -445,7 +490,13 @@ ALTER TABLE `phong_chieu`
 -- AUTO_INCREMENT for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `tbl_vnpay`
+--
+ALTER TABLE `tbl_vnpay`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `the_loai`
@@ -457,7 +508,7 @@ ALTER TABLE `the_loai`
 -- AUTO_INCREMENT for table `ve`
 --
 ALTER TABLE `ve`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
