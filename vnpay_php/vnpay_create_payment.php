@@ -8,7 +8,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
  *
  * @author xonv
  */
-require_once("./config.php");
+require_once("../vnpay_php/config.php");
 
 $vnp_TxnRef = $_POST['order_id']; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
 $vnp_OrderInfo = $_POST['order_desc'];
@@ -29,15 +29,15 @@ if (isset($fullName) && trim($fullName) != '') {
     $vnp_Bill_LastName = array_pop($name);
 }
 $vnp_Bill_Address=$_POST['txt_inv_addr1'];
-$vnp_Bill_City=$_POST['txt_bill_city'];
-$vnp_Bill_Country=$_POST['txt_bill_country'];
+// $vnp_Bill_City=$_POST['txt_bill_city'];
+// $vnp_Bill_Country=$_POST['txt_bill_country'];
 $vnp_Bill_State=$_POST['txt_bill_state'];
 // Invoice
 $vnp_Inv_Phone=$_POST['txt_inv_mobile'];
 $vnp_Inv_Email=$_POST['txt_inv_email'];
 $vnp_Inv_Customer=$_POST['txt_inv_customer'];
 $vnp_Inv_Address=$_POST['txt_inv_addr1'];
-$vnp_Inv_Company=$_POST['txt_inv_company'];
+// $vnp_Inv_Company=$_POST['txt_inv_company'];
 $vnp_Inv_Taxcode=$_POST['txt_inv_taxcode'];
 $vnp_Inv_Type=$_POST['cbo_inv_type'];
 $inputData = array(
@@ -59,13 +59,13 @@ $inputData = array(
     "vnp_Bill_FirstName"=>$vnp_Bill_FirstName,
     "vnp_Bill_LastName"=>$vnp_Bill_LastName,
     "vnp_Bill_Address"=>$vnp_Bill_Address,
-    "vnp_Bill_City"=>$vnp_Bill_City,
-    "vnp_Bill_Country"=>$vnp_Bill_Country,
+    // "vnp_Bill_City"=>$vnp_Bill_City,
+    // "vnp_Bill_Country"=>$vnp_Bill_Country,
     "vnp_Inv_Phone"=>$vnp_Inv_Phone,
     "vnp_Inv_Email"=>$vnp_Inv_Email,
     "vnp_Inv_Customer"=>$vnp_Inv_Customer,
     "vnp_Inv_Address"=>$vnp_Inv_Address,
-    "vnp_Inv_Company"=>$vnp_Inv_Company,
+    // "vnp_Inv_Company"=>$vnp_Inv_Company,
     "vnp_Inv_Taxcode"=>$vnp_Inv_Taxcode,
     "vnp_Inv_Type"=>$vnp_Inv_Type
 );

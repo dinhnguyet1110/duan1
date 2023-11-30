@@ -71,7 +71,7 @@
                 ?>
                 <div class="col-lg-4">
                 <div class="booking-summery bg-one">
-                                <h4 class="title">Vé</h4>
+                            <h4 class="title">Vé</h4>
                                 <form action="index.php?act=uplai" method="post">
                                         <div class="ngang">
                                            <input name="id" type="hidden" value="<?= $id?>">
@@ -108,8 +108,8 @@
                                         </div>
                                         <a href="?act=uplai" > <input style="border:none;margin-top:10px;border-radius: 25px;padding: 11px 24px;font-weight: 600;color: #ffffff;text-transform: uppercase;background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);" type="submit"name="thanhtoan" value="Thanh toán"></a>
                                         <a href="http://localhost/DUAN1_MOVIE/vnpay_php/" >VN Pay</a>
-                                
-                            </div>
+                                </form>
+                    </div>
                             
                 </div>
             </div>

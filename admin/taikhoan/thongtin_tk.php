@@ -22,6 +22,8 @@
                     <?php
                         if(isset($_SESSION['user'])&&(is_array($_SESSION['user']))){
                             extract($_SESSION['user']);
+                        }else{
+                            echo "Không có ";
                         }
                        
                     ?>

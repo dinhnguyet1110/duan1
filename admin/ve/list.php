@@ -30,9 +30,10 @@
                             <th>Ngày đặt</th>
                             <th>Phòng</th>
                             <th>Vị trí ghế</th>
-                            <th>Combo bỏng nước</th>   
-                            <th>Giá combo bỏng nước</th>                            
+                            <!-- <th>Combo bỏng nước</th>   
+                            <th>Giá combo bỏng nước</th>                             -->
                             <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
                         </tr>
                         <?php foreach($ve as $ve1) : ?>
                             <?php extract($ve1) ?>
@@ -45,9 +46,10 @@
                                 <td><?=$ngay_dat?></td>
                                 <td><?=$phong?></td>
                                 <td><?=$ghe?></td>
-                                <td><?=$combo?></td>
-                                <td><?=$giacombo?></td>
+                                <!-- <td><?=$combo?></td>
+                                <td><?=$giacombo?></td> -->
                                 <td><?=$tongtien?></td>
+                                <td><?=$thanhtoan?></td>
                             </tr>  
                         <?php endforeach ?>                            
                     </table>

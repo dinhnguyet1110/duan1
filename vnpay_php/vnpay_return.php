@@ -100,6 +100,9 @@
             <footer class="footer">
                    <p>&copy; VNPAY <?php echo date('Y')?></p>
             </footer>
+
+
         </div>  
+        <!-- <?php echo "<a href='../user/index.php'>Trang chủ</a>"; ?> -->
     </body>
 </html>

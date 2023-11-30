@@ -1,4 +1,6 @@
 <?php
+session_start();
+
     include '../admin/view/layout/header.php';
     include "../admin/models/theloai.php";
     include "../admin/models/pdo.php";
@@ -268,6 +270,23 @@
                 $listtaikhoan=loadall_taikhoan() ;   
                 include "../admin/taikhoan/list.php";
                 break;
+
+                // case 'thongtin_tk':
+                //     if(isset($_POST['thongtin_tk'])&&($_POST['thongtin_tk'])){                   
+                //         $user=$_POST['user'];
+                //         $pass=$_POST['pass'];
+                //         $email=$_POST['email'];
+                //         $dia_chi=$_POST['dia_chi'];
+                //         $sdt=$_POST['sdt'];
+                //         $id=$_POST['id'];
+                //         $role=$_POST['role'];               
+                //         $_SESSION['user']=dangnhap($user,$pass);
+                //         // $thongbao="alert('Cập nhật thành công')";
+                //         // header('Location: index.php?act=update_tk');                        
+                //     }
+                //     include "../admin/taikhoan/thongtin_tk.php";
+                //     break;
+
             case'dangxuat':
                 
                 unset($_SESSION['user']);           

@@ -61,11 +61,12 @@ include_once "header.php";
                         $tongtien=$_POST['tongtien'];
                         $id=$_POST['id'];
                         update_ve($ten,$gia,$tongtien,$id);
-                        
-                        include_once "home.php";   
+                       include_once "../vnpay_php/index.php";
+                        // include_once "home.php";   
                         break;
                        
                 case 'lichsu_ve':
+                    
                   $loadbill=loadall_bill();
                     include_once "../user/view/lichsu_ve.php";
                     break;

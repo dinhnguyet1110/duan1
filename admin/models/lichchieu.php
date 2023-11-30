@@ -54,12 +54,12 @@
         }
         
         function insert_ve($tenphim,$ngaychieu, $giochieu,$tenphong, $ngaydatve,$ghe,$tongtien,$user){
-            $sql = "INSERT INTO ve(user,ghe,ten_phim,ngay_dat,phong,gia,gio,ngaychieu) values('$user','$ghe','$tenphim','$ngaydatve','$tenphong','$tongtien','$giochieu','$ngaychieu')";
+            $sql = "INSERT INTO ve(user,ghe,ten_phim,ngay_dat,phong,gia,gio,ngaychieu,thanhtoan) values('$user','$ghe','$tenphim','$ngaydatve','$tenphong','$tongtien','$giochieu','$ngaychieu','Chưa thanh toán')";
             pdo_execute($sql);
         }
   
         function update_ve($ten,$gia,$tongtien,$id){
-            $sql = "UPDATE ve set combo='".$ten."', giacombo='".$gia."', tongtien='".$tongtien."'  where id=".$id;
+            $sql = "UPDATE ve set combo='".$ten."', giacombo='".$gia."', tongtien='".$tongtien."', thanhtoan='Đã thanh toán'  where id=".$id;
             pdo_execute($sql);
         }
 

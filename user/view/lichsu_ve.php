@@ -24,6 +24,7 @@
                                 <th>Combo bỏng nước</th>   
                                 <th>Giá combo bỏng nước</th>                            
                                 <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
                             </tr>
                             <?php foreach($loadbill as $bill) ?>
                             <?php extract($bill) ?>
@@ -41,9 +42,9 @@
                                 <td><?=$combo?></td>
                                 <td><?=$giacombo?></td>
                                 <td><?=$tongtien?></td>
+                                <td><?=$thanhtoan?></td>
                             </tr>
-                            
-                                
+                                                      
                             </table>
                             
                         </div>
